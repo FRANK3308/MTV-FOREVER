@@ -1,25 +1,166 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>MTV FOREVER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MTV FOREVER</title>
+
+<style>
+body{
+    margin:0;
+    background:#000;
+    color:white;
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+    padding-top:60px;
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    font-size:70px;
+    font-weight:bold;
+}
+
+.slogan{
+    letter-spacing:4px;
+    margin-bottom:50px;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns:repeat(3,220px);
+    gap:20px;
+    justify-content:center;
+}
+
+.btn{
+    padding:20px;
+    border-radius:10px;
+    font-size:28px;
+    font-weight:bold;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+}
+
+.mtv80s{
+    background:#ff1493;
+    color:#66ffff;
+}
+
+.mtv90s{
+    background:#ffd800;
+    color:red;
+}
+
+.mtv00s{
+    background:#ffb6d9;
+    color:black;
+}
+
+.hits{
+    background:#c9a0ff;
+    color:black;
+}
+
+.music{
+    background:#e8ff3b;
+    color:black;
+}
+
+.latino{
+    background:orange;
+    color:black;
+}
+
+.shape{
+    position:absolute;
+    opacity:.25;
+    animation:float 12s infinite alternate;
+}
+
+.shape1{
+    top:10%;
+    left:10%;
+    color:#ff1493;
+    font-size:40px;
+}
+
+.shape2{
+    top:20%;
+    right:15%;
+    color:#00ffff;
+    font-size:50px;
+}
+
+.shape3{
+    bottom:20%;
+    left:20%;
+    color:#ffd800;
+    font-size:60px;
+}
+
+.shape4{
+    bottom:15%;
+    right:15%;
+    color:orange;
+    font-size:45px;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0px);
+    }
+    to{
+        transform:translateY(30px);
+    }
+}
+</style>
 </head>
-<body style="background:black;color:white;text-align:center;font-family:Arial;">
 
-    <h1>MTV FOREVER</h1>
+<body>
 
-    <h2>The Music Never Stops</h2>
+<div class="shape shape1">△</div>
+<div class="shape shape2">○</div>
+<div class="shape shape3">◇</div>
+<div class="shape shape4">✦</div>
 
-    <br>
+<div class="container">
 
-    <button>MTV 80s</button>
-    <button>MTV 90s</button>
-    <button>MTV 00s</button>
+<div class="logo">
+MTV FOREVER
+</div>
 
-    <br><br>
+<div class="slogan">
+THE MUSIC NEVER STOPS
+</div>
 
-    <button>MTV HITS</button>
-    <button>MTV MUSIC</button>
-    <button>MTV LATINO</button>
+<div class="buttons">
+
+<a href="#" class="btn mtv80s">MTV 80s</a>
+
+<a href="#" class="btn mtv90s">MTV 90s</a>
+
+<a href="#" class="btn mtv00s">MTV 00s</a>
+
+<a href="#" class="btn hits">MTV HITS</a>
+
+<a href="#" class="btn music">MTV MUSIC</a>
+
+<a href="#" class="btn latino">MTV LATINO</a>
+
+</div>
+
+</div>
 
 </body>
 </html>
