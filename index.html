@@ -252,7 +252,9 @@ body{
 
 <div class="shape" style="bottom:8%;left:55%;color:#00ffff;font-size:35px;">○</div>
 <div class="container">
+    
 <div id="home">
+    
 <div class="logo">
 <img src="mtv-music-television-seeklogo.png" alt="MTV Logo" width="280">
 
@@ -293,11 +295,25 @@ THE MUSIC NEVER STOPS
 </div>
 
 <div id="mtv80s-page" style="display:none;">
+<h1>MTV 80s</h1>
 
 </div>
 
 </div>
 
+<script>
+
+document.querySelector(".mtv80s").addEventListener("click", function(e){
+
+    e.preventDefault();
+
+    document.getElementById("home").style.display = "none";
+
+    document.getElementById("mtv80s-page").style.display = "block";
+
+});
+
+</script>
 
 </body>
 </html>
