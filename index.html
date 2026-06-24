@@ -295,15 +295,23 @@ THE MUSIC NEVER STOPS
 </div>
 
 <div id="mtv80s-page" style="display:none;">
-<h1>MTV 80s</h1>
+
+<h1 style="
+color:#66ffff;
+font-size:80px;
+text-align:center;
+margin-top:200px;">
+MTV 80s
+</h1>
 
 </div>
-
 </div>
 
 <script>
 
-document.querySelector(".mtv80s").addEventListener("click", function(e){
+const boton80s = document.querySelector(".mtv80s");
+
+boton80s.onclick = function(e){
 
     e.preventDefault();
 
@@ -311,9 +319,9 @@ document.querySelector(".mtv80s").addEventListener("click", function(e){
 
     document.getElementById("mtv80s-page").style.display = "block";
 
-});
+};
 
 </script>
-
+    
 </body>
 </html>
