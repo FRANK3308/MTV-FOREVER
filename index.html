@@ -193,6 +193,31 @@ body{
         transform:translate(-20px,-15px) rotate(-5deg);
     }
 }
+#mtv80s-page{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:black;
+    z-index:999;
+    text-align:center;
+}
+.home-btn{
+    position:absolute;
+    top:25px;
+    left:25px;
+    padding:12px 25px;
+    border:2px solid #66ffff;
+    border-radius:10px;
+    background:black;
+    color:#66ffff;
+    font-size:20px;
+    font-weight:900;
+    font-style:italic;
+    cursor:pointer;
+}
 </style>
 </head>
 
@@ -294,7 +319,9 @@ THE MUSIC NEVER STOPS
 
 </div>
 
-<div id="mtv80s-page" style="display:none;">
+<div id="mtv80s-page">
+
+<button class="home-btn">HOME</button>
 
 <h1 style="
 color:#66ffff;
@@ -318,6 +345,14 @@ boton80s.onclick = function(e){
     document.getElementById("home").style.display = "none";
 
     document.getElementById("mtv80s-page").style.display = "block";
+
+};
+
+document.querySelector(".home-btn").onclick = function(){
+
+    document.getElementById("home").style.display = "block";
+
+    document.getElementById("mtv80s-page").style.display = "none";
 
 };
 
