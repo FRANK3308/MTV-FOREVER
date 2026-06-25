@@ -200,23 +200,66 @@ body{
     left:0;
     width:100%;
     height:100vh;
-    background:black;
+    background:#000;
     z-index:999;
-    text-align:center;
+    overflow:hidden;
 }
+
 .home-btn{
     position:absolute;
-    top:25px;
-    left:25px;
-    padding:12px 25px;
-    border:2px solid #66ffff;
-    border-radius:10px;
+    top:20px;
+    right:30px;
+
+    padding:8px 18px;
+
+    border:2px solid #ff1493;
+    border-radius:20px;
+
     background:black;
+    color:#ff1493;
+
+    font-weight:bold;
+    cursor:pointer;
+
+    box-shadow:
+    0 0 10px #ff1493,
+    0 0 20px #ff1493;
+}
+
+.mini-forever{
+    position:absolute;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.mini-forever span{
     color:#66ffff;
+
     font-size:20px;
     font-weight:900;
     font-style:italic;
-    cursor:pointer;
+
+    text-shadow:
+    0 0 10px #66ffff,
+    0 0 20px #66ffff;
+}
+
+.logo80s{
+    text-align:center;
+    margin-top:70px;
+}
+
+.logo80s img{
+    width:420px;
+
+    filter:
+    drop-shadow(0 0 20px #00ffff)
+    drop-shadow(0 0 40px #00ffff);
 }
 </style>
 </head>
@@ -323,13 +366,19 @@ THE MUSIC NEVER STOPS
 
 <button class="home-btn">HOME</button>
 
-<h1 style="
-color:#66ffff;
-font-size:80px;
-text-align:center;
-margin-top:200px;">
-MTV 80s
-</h1>
+<div class="mini-forever">
+
+<img src="mtv-music-television-seeklogo.png" width="60">
+
+<span>FOREVER</span>
+
+</div>
+
+<div class="logo80s">
+
+<img src="MTV_80s_2022.png">
+
+</div>
 
 </div>
 </div>
