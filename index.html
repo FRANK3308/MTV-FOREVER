@@ -253,15 +253,106 @@ body{
 }
 .logo80s{
     text-align:center;
-    margin-top:70px;
+    margin-top:45px;
 }
-
 .logo80s img{
-    width:420px;
+    width:280px;
 
     filter:
-    drop-shadow(0 0 20px #00ffff)
-    drop-shadow(0 0 40px #00ffff);
+    drop-shadow(0 0 15px #00ffff)
+    drop-shadow(0 0 30px #00ffff);
+}
+.neon{
+    position:absolute;
+    width:70px;
+    height:70px;
+    border:5px solid;
+
+    border-radius:50%;
+
+    top:150px;
+}
+
+.left{
+    left:120px;
+
+    border-color:#00ffff;
+
+    box-shadow:
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+}
+
+.right{
+    right:120px;
+
+    border-color:#ff1493;
+
+    box-shadow:
+    0 0 20px #ff1493,
+    0 0 40px #ff1493;
+}
+
+.player80s{
+    width:720px;
+    height:400px;
+
+    margin:20px auto;
+
+    padding:6px;
+
+    background:linear-gradient(
+        90deg,
+        #ff1493,
+        #00ffff
+    );
+
+    box-shadow:
+    0 0 25px #ff1493,
+    0 0 50px #00ffff;
+}
+
+.screen80s{
+    width:100%;
+    height:100%;
+
+    background:black;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#ffffff;
+
+    font-size:35px;
+    font-weight:bold;
+}
+
+.retro-grid{
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+    height:180px;
+
+    background:
+    repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 50px,
+        #ff1493 51px
+    ),
+
+    repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 40px,
+        #00ffff 41px
+    );
+
+    opacity:.35;
 }
 </style>
 </head>
@@ -378,9 +469,25 @@ THE MUSIC NEVER STOPS
 
 <div class="logo80s">
 
-<img src="MTV_80s_2022.png">
+  <img src="MTV_80s_2022.png">
 
 </div>
+
+<div class="neon left"></div>
+
+<div class="neon right"></div>
+
+<div class="player80s">
+
+<div class="screen80s">
+
+MTV VIDEO PLAYER
+
+</div>
+
+</div>
+
+<div class="retro-grid"></div>
 
 </div>
 </div>
