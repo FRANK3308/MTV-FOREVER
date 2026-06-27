@@ -332,115 +332,112 @@ body{
     font-weight:bold;
 }
 
-.retro-grid{
+.retro-floor{
     position:absolute;
-
-    bottom:0;
     left:0;
-
-    width:100%;
-    height:180px;
+    right:0;
+    bottom:0;
+    height:320px;
 
     background:
     repeating-linear-gradient(
         90deg,
-        transparent,
-        transparent 50px,
-        #ff1493 51px
-    ),
-
-    repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 40px,
-        #00ffff 41px
+        rgba(255,0,150,.4) 0px,
+        rgba(255,0,150,.4) 1px,
+        transparent 1px,
+        transparent 60px
     );
 
-    opacity:.35;
+    transform:perspective(500px) rotateX(75deg);
+
+    transform-origin:bottom;
+
+    box-shadow:
+    0 0 20px #ff1493,
+    0 0 40px #00ffff;
+
+    opacity:.8;
 }
-.decor{
+.retro-floor::before{
+    content:"";
     position:absolute;
-    z-index:1;
-}
+    inset:0;
 
-.cyan-circle{
-    width:70px;
-    height:70px;
-    border:5px solid #00ffff;
-    border-radius:50%;
-    left:60px;
+    background:
+    repeating-linear-gradient(
+        0deg,
+        rgba(0,255,255,.5) 0px,
+        rgba(0,255,255,.5) 1px,
+        transparent 1px,
+        transparent 40px
+    );
+
+    box-shadow:0 0 15px #00ffff;
+}
+.player{
+    position:relative;
+    z-index:10;
+}
+.circle-left{
+    position:absolute;
+    left:70px;
     top:180px;
-    box-shadow:0 0 20px #00ffff;
-}
-
-.pink-circle{
-    width:70px;
-    height:70px;
-    border:5px solid #ff1493;
+    width:80px;
+    height:80px;
+    border:6px solid #00ffff;
     border-radius:50%;
-    right:60px;
+    box-shadow:
+    0 0 20px #00ffff,
+    0 0 50px #00ffff;
+}
+.circle-right{
+    position:absolute;
+    right:70px;
     top:180px;
-    box-shadow:0 0 20px #ff1493;
+    width:80px;
+    height:80px;
+    border:6px solid #ff1493;
+    border-radius:50%;
+    box-shadow:
+    0 0 20px #ff1493,
+    0 0 50px #ff1493;
 }
-
-.diamond1{
-    color:#00ffff;
-    font-size:40px;
-    right:90px;
-    top:280px;
-    text-shadow:0 0 15px #00ffff;
-}
-
-.diamond2{
-    color:#ffd800;
-    font-size:35px;
-    left:90px;
-    bottom:170px;
-    text-shadow:0 0 15px #ffd800;
-}
-
-.triangle1{
+.star80s{
+    position:absolute;
+    right:260px;
+    top:100px;
     color:#ff1493;
-    font-size:50px;
-    left:80px;
-    bottom:250px;
+    font-size:30px;
     text-shadow:0 0 20px #ff1493;
 }
 
-.star1{
+.diamond80s{
+    position:absolute;
+    right:140px;
+    top:330px;
+    color:#00ffff;
+    font-size:45px;
+    text-shadow:0 0 20px #00ffff;
+}
+
+.triangle80s{
+    position:absolute;
+    left:80px;
+    bottom:300px;
     color:#ff1493;
-    font-size:30px;
-    top:80px;
-    right:250px;
-    text-shadow:0 0 15px #ff1493;
+    font-size:55px;
+    text-shadow:0 0 20px #ff1493;
 }
 
-.star2{
-    color:#ffd800;
-    font-size:30px;
-    bottom:220px;
-    right:250px;
-    text-shadow:0 0 15px #ffd800;
-}
-
-.line1{
-    width:80px;
+.line80s{
+    position:absolute;
+    right:140px;
+    bottom:280px;
+    width:70px;
     height:5px;
     background:#ffd800;
-    right:90px;
-    bottom:250px;
     transform:rotate(-45deg);
-    box-shadow:0 0 15px #ffd800;
-}
-
-.line2{
-    width:60px;
-    height:5px;
-    background:#ff1493;
-    right:130px;
-    top:340px;
-    transform:rotate(45deg);
-    box-shadow:0 0 15px #ff1493;
+    box-shadow:0 0 20px #ffd800;
 }
 </style>
 </head>
@@ -564,20 +561,13 @@ THE MUSIC NEVER STOPS
 <div class="neon left"></div>
 
 <div class="neon right"></div>
+<div class="star80s">✦</div>
+<div class="diamond80s">◇</div>
+<div class="triangle80s">△</div>
+<div class="line80s"></div>
     
-<div class="decor cyan-circle"></div>
-<div class="decor pink-circle"></div>
-
-<div class="decor diamond1">◇</div>
-<div class="decor diamond2">◇</div>
-
-<div class="decor triangle1">△</div>
-
-<div class="decor star1">✦</div>
-<div class="decor star2">✦</div>
-
-<div class="decor line1"></div>
-<div class="decor line2"></div>
+<div class="circle-left"></div>
+<div class="circle-right"></div>
 
 <div class="player80s">
 
@@ -589,7 +579,7 @@ MTV VIDEO PLAYER
 
 </div>
 
-<div class="retro-grid"></div>
+<div class="retro-floor"></div>
 
 </div>
 </div>
