@@ -263,51 +263,7 @@ body{
     drop-shadow(0 0 15px #00ffff)
     drop-shadow(0 0 30px #00ffff);
 }
-.title80{
-    text-align:center;
-    margin-top:-30px;
 
-    font-size:90px;
-    font-weight:900;
-    font-style:italic;
-
-    color:#00dfff;
-
-    text-shadow:
-    0 0 10px #00ffff,
-    0 0 20px #00ffff,
-    0 0 40px #00ffff;
-}
-.neon{
-    position:absolute;
-    width:70px;
-    height:70px;
-    border:5px solid;
-
-    border-radius:50%;
-
-    top:150px;
-}
-
-.left{
-    left:120px;
-
-    border-color:#00ffff;
-
-    box-shadow:
-    0 0 20px #00ffff,
-    0 0 40px #00ffff;
-}
-
-.right{
-    right:120px;
-
-    border-color:#ff1493;
-
-    box-shadow:
-    0 0 20px #ff1493,
-    0 0 40px #ff1493;
-}
 
 .player80s{
     width:720px;
@@ -329,6 +285,9 @@ body{
     box-shadow:
     0 0 25px #ff1493,
     0 0 50px #00ffff;
+
+    position:relative;
+    z-index:20;
 }
 
 .screen80s{
@@ -352,11 +311,17 @@ body{
     position:relative;
     z-index:10;
 }
+.circle-left,
+.circle-right{
+    position:absolute;
+    border-radius:50%;
+}
+
 .circle-left{
     width:110px;
     height:110px;
     left:70px;
-    top:170px;
+    top:180px;
 
     border:7px solid #00ffff;
 
@@ -364,11 +329,12 @@ body{
     0 0 25px #00ffff,
     0 0 50px #00ffff;
 }
+
 .circle-right{
     width:110px;
     height:110px;
     right:70px;
-    top:170px;
+    top:180px;
 
     border:7px solid #ff1493;
 
@@ -378,8 +344,8 @@ body{
 }
 .star80{
     position:absolute;
-    top:110px;
-    right:240px;
+    top:140px;
+    right:250px;
 
     color:#ff1493;
     font-size:28px;
@@ -409,29 +375,13 @@ body{
     content:"◇";
 }
 
-.triangle80{
-    position:absolute;
-    left:80px;
-    bottom:230px;
-
-    color:#ff1493;
-    font-size:50px;
-
-    text-shadow:
-    0 0 15px #ff1493;
-}
-
-.triangle80::before{
-    content:"△";
-}
-
 .line80{
     position:absolute;
 
+    width:70px;
+
     right:140px;
     bottom:240px;
-
-    width:70px;
     height:5px;
 
     background:#ffd800;
@@ -448,33 +398,33 @@ body{
 }
 .retro-grid{
     position:absolute;
-    bottom:-120px;
+    bottom:-420px;
     left:50%;
 
-    width:1800px;
-    height:700px;
+    width:2200px;
+    height:900px;
 
     transform:
     translateX(-50%)
-    perspective(700px)
-    rotateX(80deg);
+    perspective(900px)
+    rotateX(65deg);
 
     z-index:1;
 
     background:
     repeating-linear-gradient(
         90deg,
-        rgba(255,0,150,.8) 0px,
-        rgba(255,0,150,.8) 2px,
+        rgba(255,20,147,.8) 0px,
+        rgba(255,20,147,.8) 2px,
         transparent 2px,
-        transparent 60px
+        transparent 70px
     ),
     repeating-linear-gradient(
         0deg,
         rgba(0,255,255,.8) 0px,
         rgba(0,255,255,.8) 2px,
         transparent 2px,
-        transparent 60px
+        transparent 70px
     );
 
     box-shadow:
@@ -599,16 +549,9 @@ THE MUSIC NEVER STOPS
   <img src="MTV_80s_2022.png">
 
 </div>
-    
-<div class="title80">
-80s
-</div>
-
-<div class="neon left"></div>
 
 <div class="star80"></div>
 <div class="diamond80"></div>
-<div class="triangle80"></div>
 <div class="line80"></div>
     
 <div class="circle-left"></div>
