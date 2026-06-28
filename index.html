@@ -358,43 +358,54 @@ body{
 .star80::before{
     content:"✦";
 }
-
-.diamond80{
-    position:absolute;
-    right:130px;
-    top:310px;
-
-    color:#00ffff;
-    font-size:45px;
-
-    text-shadow:
-    0 0 15px #00ffff;
-}
-
-.diamond80::before{
-    content:"◇";
-}
-
-.line80{
-    position:absolute;
-
-    width:70px;
-
-    right:140px;
-    bottom:240px;
-    height:5px;
-
-    background:#ffd800;
-
-    transform:rotate(-45deg);
-
-    box-shadow:
-    0 0 10px #ffd800,
-    0 0 20px #ffd800;
-}
 .player80s{
     position:relative;
     z-index:20;
+}
+.shape1{
+    position:absolute;
+    left:90px;
+    bottom:260px;
+    width:45px;
+    height:45px;
+    border:4px solid #ff1493;
+    transform:rotate(45deg);
+    box-shadow:0 0 20px #ff1493;
+}
+
+.shape2{
+    position:absolute;
+    right:150px;
+    top:350px;
+    width:30px;
+    height:30px;
+    border:4px solid #00ffff;
+    transform:rotate(45deg);
+    box-shadow:0 0 20px #00ffff;
+}
+
+.shape3{
+    position:absolute;
+    right:190px;
+    top:500px;
+    width:70px;
+    height:5px;
+    background:#ffd800;
+    transform:rotate(-45deg);
+    box-shadow:0 0 20px #ffd800;
+}
+
+.shape4{
+    position:absolute;
+    right:230px;
+    top:150px;
+    color:#ff1493;
+    font-size:35px;
+    text-shadow:0 0 20px #ff1493;
+}
+
+.shape4::before{
+    content:"✦";
 }
 .retro-grid{
     position:absolute;
@@ -410,6 +421,8 @@ body{
     rotateX(65deg);
 
     z-index:1;
+
+    overflow:hidden;
 
     background:
     repeating-linear-gradient(
@@ -427,9 +440,24 @@ body{
         transparent 70px
     );
 
-    box-shadow:
-    0 0 20px #ff1493,
-    0 0 40px #00ffff;
+   box-shadow:
+0 0 20px #ff1493,
+0 0 40px #00ffff,
+0 0 80px rgba(0,255,255,.4);
+}
+.retro-grid::before{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:radial-gradient(
+        ellipse at center,
+        transparent 45%,
+        rgba(0,0,0,.5) 75%,
+        #000 100%
+    );
+
+    pointer-events:none;
 }
 </style>
 </head>
@@ -551,11 +579,13 @@ THE MUSIC NEVER STOPS
 </div>
 
 <div class="star80"></div>
-<div class="diamond80"></div>
-<div class="line80"></div>
-    
+
 <div class="circle-left"></div>
 <div class="circle-right"></div>
+<div class="shape1"></div>
+<div class="shape2"></div>
+<div class="shape3"></div>
+<div class="shape4"></div>
 
 <div class="player80s">
 
