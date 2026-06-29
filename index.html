@@ -364,19 +364,23 @@ body{
 }
 .shape1{
     position:absolute;
-    left:90px;
-    bottom:260px;
+    left:80px;
+    top:90px;
+
     width:45px;
     height:45px;
+
     border:4px solid #ff1493;
+
     transform:rotate(45deg);
+
     box-shadow:0 0 20px #ff1493;
 }
 
 .shape2{
     position:absolute;
-    right:150px;
-    top:350px;
+    right:340px;
+    top:520px;
     width:30px;
     height:30px;
     border:4px solid #00ffff;
@@ -406,6 +410,37 @@ body{
 
 .shape4::before{
     content:"✦";
+}
+.shape5{
+    position:absolute;
+    left:90px;
+    bottom:330px;
+
+    color:#ff1493;
+    font-size:55px;
+
+    text-shadow:0 0 20px #ff1493;
+}
+
+.shape5::before{
+    content:"△";
+}
+
+.shape6{
+    position:absolute;
+    right:200px;
+    top:120px;
+
+    width:12px;
+    height:12px;
+
+    background:#00ffff;
+
+    border-radius:50%;
+
+    box-shadow:
+    0 0 15px #00ffff,
+    0 0 30px #00ffff;
 }
 .retro-grid{
     position:absolute;
@@ -440,10 +475,10 @@ body{
         transparent 70px
     );
 
-   box-shadow:
-0 0 20px #ff1493,
-0 0 40px #00ffff,
-0 0 80px rgba(0,255,255,.4);
+    box-shadow:
+    0 0 25px #ff1493,
+    0 0 50px #00ffff,
+    0 0 80px rgba(0,255,255,.3);
 }
 .retro-grid::before{
     content:"";
@@ -586,6 +621,8 @@ THE MUSIC NEVER STOPS
 <div class="shape2"></div>
 <div class="shape3"></div>
 <div class="shape4"></div>
+<div class="shape5"></div>
+<div class="shape6"></div>
 
 <div class="player80s">
 
