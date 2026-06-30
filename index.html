@@ -442,45 +442,45 @@ body{
     0 0 15px #00ffff,
     0 0 30px #00ffff;
 }
-.spark1{
+.zigzag{
     position:absolute;
-    top:80px;
-    left:55px;
-    width:10px;
-    height:10px;
-    background:#ff4dff;
-    border-radius:50%;
-    box-shadow:
-        0 0 10px #ff4dff,
-        0 0 20px #ff4dff;
+    right:180px;
+    top:330px;
+
+    width:55px;
+    height:18px;
+
+    background:
+    repeating-linear-gradient(
+        -45deg,
+        transparent 0 8px,
+        #ff1493 8px 12px,
+        transparent 12px 20px
+    );
+
+    transform:rotate(90deg);
+
+    filter:
+    drop-shadow(0 0 6px #ff1493)
+    drop-shadow(0 0 12px #ff1493);
 }
 
-.spark2{
+.dots80{
     position:absolute;
-    top:70px;
-    left:95px;
-    width:8px;
-    height:8px;
-    background:#ffaa33;
-    border-radius:50%;
-    box-shadow:
-        0 0 8px #ffaa33,
-        0 0 15px #ffaa33;
-}
+    right:120px;
+    top:520px;
 
-.spark3{
-    position:absolute;
-    top:82px;
-    left:135px;
-    color:#ff66ff;
-    font-size:20px;
-    text-shadow:
-        0 0 10px #ff66ff,
-        0 0 20px #ff66ff;
-}
+    width:50px;
+    height:50px;
 
-.spark3::before{
-    content:"✦";
+    background-image:
+    radial-gradient(#ff1493 2px, transparent 2px);
+
+    background-size:12px 12px;
+
+    clip-path:polygon(0 100%,100% 100%,100% 0);
+
+    filter:drop-shadow(0 0 8px #ff1493);
 }
 .retro-grid{
     position:absolute;
@@ -640,9 +640,7 @@ THE MUSIC NEVER STOPS
 <button class="home-btn">HOME</button>
 
 <div class="mini-forever">
-<div class="spark1"></div>
-<div class="spark2"></div>
-<div class="spark3"></div>
+
 
 <img src="mtv-music-television-seeklogo.png" width="60">
 
@@ -666,6 +664,9 @@ THE MUSIC NEVER STOPS
 <div class="shape4"></div>
 <div class="shape5"></div>
 <div class="shape6"></div>
+    
+<div class="zigzag"></div>
+<div class="dots80"></div>
 
 <div class="player80s">
 
