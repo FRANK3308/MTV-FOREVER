@@ -444,43 +444,41 @@ body{
 }
 .zigzag{
     position:absolute;
-    right:180px;
-    top:330px;
+    right:150px;
+    top:380px;
 
-    width:55px;
-    height:18px;
+    color:#ff1493;
+    font-size:55px;
 
-    background:
-    repeating-linear-gradient(
-        -45deg,
-        transparent 0 8px,
-        #ff1493 8px 12px,
-        transparent 12px 20px
-    );
+    text-shadow:
+    0 0 10px #ff1493,
+    0 0 20px #ff1493;
+}
 
-    transform:rotate(90deg);
-
-    filter:
-    drop-shadow(0 0 6px #ff1493)
-    drop-shadow(0 0 12px #ff1493);
+.zigzag::before{
+    content:"≈";
 }
 
 .dots80{
     position:absolute;
-    right:120px;
-    top:520px;
+   right:120px;
+   bottom:110px;
 
-    width:50px;
-    height:50px;
+    width:70px;
+    height:60px;
 
     background-image:
-    radial-gradient(#ff1493 2px, transparent 2px);
+       radial-gradient(circle,#ff1493 1.8px,transparent 2.8px);
 
     background-size:12px 12px;
 
-    clip-path:polygon(0 100%,100% 100%,100% 0);
+    clip-path:polygon(100% 100%,0 100%,100% 0);
 
-    filter:drop-shadow(0 0 8px #ff1493);
+    filter:
+        drop-shadow(0 0 4px #ff1493)
+        drop-shadow(0 0 10px #ff1493);
+
+    opacity:.95;
 }
 .retro-grid{
     position:absolute;
@@ -667,7 +665,7 @@ THE MUSIC NEVER STOPS
     
 <div class="zigzag"></div>
 <div class="dots80"></div>
-
+    
 <div class="player80s">
 
 <div class="screen80s">
