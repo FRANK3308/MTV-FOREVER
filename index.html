@@ -442,6 +442,46 @@ body{
     0 0 15px #00ffff,
     0 0 30px #00ffff;
 }
+.spark1{
+    position:absolute;
+    top:80px;
+    left:55px;
+    width:10px;
+    height:10px;
+    background:#ff4dff;
+    border-radius:50%;
+    box-shadow:
+        0 0 10px #ff4dff,
+        0 0 20px #ff4dff;
+}
+
+.spark2{
+    position:absolute;
+    top:70px;
+    left:95px;
+    width:8px;
+    height:8px;
+    background:#ffaa33;
+    border-radius:50%;
+    box-shadow:
+        0 0 8px #ffaa33,
+        0 0 15px #ffaa33;
+}
+
+.spark3{
+    position:absolute;
+    top:82px;
+    left:135px;
+    color:#ff66ff;
+    font-size:20px;
+    text-shadow:
+        0 0 10px #ff66ff,
+        0 0 20px #ff66ff;
+}
+
+.spark3::before{
+    content:"✦";
+}
 .retro-grid{
     position:absolute;
     bottom:-460px;
@@ -600,6 +640,9 @@ THE MUSIC NEVER STOPS
 <button class="home-btn">HOME</button>
 
 <div class="mini-forever">
+<div class="spark1"></div>
+<div class="spark2"></div>
+<div class="spark3"></div>
 
 <img src="mtv-music-television-seeklogo.png" width="60">
 
