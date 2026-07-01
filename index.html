@@ -445,40 +445,70 @@ body{
 .zigzag{
     position:absolute;
     right:150px;
-    top:380px;
+    top:360px;
 
-    color:#ff1493;
-    font-size:55px;
-
-    text-shadow:
-    0 0 10px #ff1493,
-    0 0 20px #ff1493;
-}
-
-.zigzag::before{
-    content:"≈";
-}
-
-.dots80{
-    position:absolute;
-   right:120px;
-   bottom:110px;
-
-    width:70px;
+    width:40px;
     height:60px;
 
-    background-image:
-       radial-gradient(circle,#ff1493 1.8px,transparent 2.8px);
-
-    background-size:12px 12px;
-
-    clip-path:polygon(100% 100%,0 100%,100% 0);
+    background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='60' viewBox='0 0 40 60'%3E%3Cpath d='M5 10 Q15 0 25 10 T45 10 M5 30 Q15 20 25 30 T45 30' stroke='%23ff1493' stroke-width='4' fill='none'/%3E%3C/svg%3E")
+    no-repeat center;
 
     filter:
-        drop-shadow(0 0 4px #ff1493)
-        drop-shadow(0 0 10px #ff1493);
+    drop-shadow(0 0 8px #ff1493)
+    drop-shadow(0 0 15px #ff1493);
+}
+.triangle-dots{
+    position:absolute;
+    right:120px;
+    bottom:85px;
+    width:90px;
+    height:90px;
+}
 
-    opacity:.95;
+.triangle-dots::before{
+    content:"";
+    position:absolute;
+    left:8px;
+    top:5px;
+
+    width:3px;
+    height:82px;
+
+    background:#00ffff;
+
+    transform:rotate(45deg);
+    transform-origin:top;
+
+    box-shadow:
+    0 0 10px #00ffff,
+    0 0 20px #00ffff;
+}
+.triangle-dots span{
+    position:absolute;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#ff1493;
+
+    right:0;
+    bottom:0;
+
+    box-shadow:
+    0 -12px #ff1493,
+    0 -24px #ff1493,
+    0 -36px #ff1493,
+
+    -12px 0 #ff1493,
+    -24px 0 #ff1493,
+    -36px 0 #ff1493,
+
+    -12px -12px #ff1493,
+    -24px -12px #ff1493,
+
+    -12px -24px #ff1493;
+
+    filter:drop-shadow(0 0 6px #ff1493);
 }
 .retro-grid{
     position:absolute;
@@ -664,7 +694,9 @@ THE MUSIC NEVER STOPS
 <div class="shape6"></div>
     
 <div class="zigzag"></div>
-<div class="dots80"></div>
+<div class="triangle-dots">
+    <span></span>
+</div>
     
 <div class="player80s">
 
