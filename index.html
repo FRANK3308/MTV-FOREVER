@@ -306,7 +306,13 @@ body{
     font-weight:bold;
 }
 
-
+#startChannel{
+    padding:18px 40px;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+}
+    
 .player{
     position:relative;
     z-index:10;
@@ -842,9 +848,12 @@ THE MUSIC NEVER STOPS
 <div class="player80s">
 
 <div class="screen80s">
-MTV VIDEO PLAYER
-</div>
 
+    <button id="startChannel">
+        ENTRAR AL CANAL
+    </button>
+
+</div>
 </div>
 
 <div class="retro-grid"></div>
@@ -876,6 +885,7 @@ document.querySelector(".home-btn").onclick = function(){
 };
 
 </script>
-    
+<script src="app.js"></script>
+
 </body>
 </html>
