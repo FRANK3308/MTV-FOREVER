@@ -1,9 +1,13 @@
 const button = document.getElementById("startChannel");
 
-button.addEventListener("click", async () => {
+const player = document.querySelector(".player80s");
 
-    if (!document.fullscreenElement) {
-        await document.documentElement.requestFullscreen();
+button.addEventListener("click", async()=>{
+
+    if(!document.fullscreenElement){
+
+        await player.requestFullscreen();
+
     }
 
 });
