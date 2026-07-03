@@ -529,6 +529,114 @@ body{
 .p8{ bottom:72px; right:0; }
 .p9{ bottom:90px; right:0; }
 
+.small-circle{
+    position:absolute;
+
+    left:85px;
+    bottom:170px;
+
+    width:58px;
+    height:58px;
+
+    border:4px solid #ff1493;
+    border-radius:50%;
+
+    box-shadow:
+        0 0 10px #ff1493,
+        0 0 22px #ff1493;
+}
+
+.spark{
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    background:#ff4fd8;
+
+    transform:rotate(45deg);
+
+    box-shadow:
+        0 0 8px #ff4fd8,
+        0 0 16px #ff4fd8;
+
+    animation:twinkle 4s ease-in-out infinite;
+}
+
+.spark::before,
+.spark::after{
+    content:"";
+    position:absolute;
+    background:inherit;
+}
+
+.spark::before{
+    width:2px;
+    height:16px;
+    left:2.5px;
+    top:-4px;
+}
+
+.spark::after{
+    width:16px;
+    height:2px;
+    left:-4px;
+    top:2.5px;
+}
+
+.s1{
+    left:250px;
+    top:110px;
+}
+
+.s2{
+    left:600px;
+    top:80px;
+}
+
+.s3{
+    left:1180px;
+    top:120px;
+}
+
+.s4{
+    left:320px;
+    top:230px;
+}
+
+.s5{
+    right:330px;
+    top:250px;
+}
+
+.s6{
+    right:250px;
+    bottom:280px;
+}
+
+.s7{
+    left:280px;
+    bottom:220px;
+}
+
+.s8{
+    right:360px;
+    bottom:170px;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:.5;
+        transform:rotate(45deg) scale(1);
+    }
+
+    50%{
+        opacity:1;
+        transform:rotate(45deg) scale(1.3);
+    }
+}
+
 .retro-grid{
     position:absolute;
     bottom:-460px;
