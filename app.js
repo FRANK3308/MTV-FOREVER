@@ -1,7 +1,6 @@
 let player;
 
 const button = document.getElementById("startChannel");
-const container = document.querySelector(".player80s");
 
 function onYouTubeIframeAPIReady() {
 
@@ -23,14 +22,16 @@ function onYouTubeIframeAPIReady() {
 
 button.addEventListener("click", async () => {
 
-    if (!document.fullscreenElement) {
+    const container = document.querySelector(".player80s");
 
+    if (container && !document.fullscreenElement) {
         await container.requestFullscreen();
-
     }
 
-   button.style.display = "none";
+    button.style.display = "none";
 
-if (player) {
-    player.playVideo();
-}
+    if (player) {
+        player.playVideo();
+    }
+
+});
