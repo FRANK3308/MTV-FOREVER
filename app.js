@@ -1,13 +1,36 @@
+let player;
+
 const button = document.getElementById("startChannel");
+const container = document.querySelector(".player80s");
 
-const player = document.querySelector(".player80s");
+function onYouTubeIframeAPIReady() {
 
-button.addEventListener("click", async()=>{
+    player = new YT.Player("player", {
 
-    if(!document.fullscreenElement){
+        videoId: "djV11Xbc914",
 
-        await player.requestFullscreen();
+        playerVars: {
+            autoplay: 0,
+            controls: 0,
+            rel: 0,
+            modestbranding: 1,
+            fs: 0
+        }
+
+    });
+
+}
+
+button.addEventListener("click", async () => {
+
+    if (!document.fullscreenElement) {
+
+        await container.requestFullscreen();
 
     }
+
+    button.style.display = "none";
+
+    player.playVideo();
 
 });
