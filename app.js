@@ -29,8 +29,8 @@ button.addEventListener("click", async () => {
 
     }
 
-    button.style.display = "none";
+   button.style.display = "none";
 
+if (player) {
     player.playVideo();
-
-});
+}
