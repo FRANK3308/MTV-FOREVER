@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Prueba de TV en Vivo</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; overflow: hidden; }
+        .player80s { position: relative; width: 100%; height: 100%; }
+        /* Esta línea es el truco para bloquear adelantos, pausas o doble clic */
+        .player80s iframe { width: 100%; height: 100%; border: none; pointer-events: none; }
+        #startChannel { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            padding: 20px 40px; font-size: 20px; cursor: pointer; background: #00bcd4; color: white; border: none; font-weight: bold; z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="player80s">
+        <div id="player"></div>
+        <button id="startChannel">PROBAR SEÑAL EN VIVO</button>
+    </div>
+
+    <script>
+        let player;
+        // Videos de prueba integrados directamente para no romper nada en tu web
+        const testVideos = [
+            { id: "djV11Xbc914", duration: 245 }, // A-ha - Take On Me
+            { id: "dQw4w9WgXcQ", duration: 213 }, // Rick Astley - Never Gonna Give You Up
+            { id: "9bZkp7q19f0", duration: 235 }  // PSY - Gangnam Style
+        ];
+
+        const button = document.getElementById("startChannel");
+
+        // Carga automática de la API
+        const tag = document.createElement('script');
+        tag.src = "https://youtube.com";
+        const firstScriptTag = document.getElementsByTagName('script');
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        function onYouTubeIframeAPIReady() {
+            const currentTransmission = getLiveVideo(testVideos);
+
+            player = new YT.Player("player", {
+                videoId: currentTransmission.videoId,
+                playerVars: {
+                    autoplay: 0,
+                    controls: 0,          // Quita la barra
+                    rel: 0,               // Bloquea recomendados
+                    modestbranding: 1,    // Oculta logo de YT
+                    fs: 0,                // Desactiva botón nativo de pantalla completa
+                    disablekb: 1,         // Bloquea el teclado
+                    iv_load_policy: 3,    // Sin anuncios molestos flotantes
+                    start: currentTransmission.startSeconds // Sincronización en vivo
+                },
+                events: { 'onStateChange': onPlayerStateChange }
+            });
+        }
+
+        // Simulación matemática de TV en vivo
+        function getLiveVideo(videos) {
+            const totalDuration = videos.reduce((acc, video) => acc + video.duration, 0);
+            const currentTimeSec = Math.floor(Date.now() / 1000);
+            const currentPlaylistTime = currentTimeSec % totalDuration;
+
+            let elapsedTime = 0;
+            for (let i = 0; i < videos.length; i++) {
+                if (currentPlaylistTime >= elapsedTime && currentPlaylistTime < (elapsedTime + videos[i].duration)) {
+                    return { videoId: videos[i].id, startSeconds: currentPlaylistTime - elapsedTime };
+                }
+                elapsedTime += videos[i].duration;
+            }
+            return { videoId: videos[0].id, startSeconds: 0 };
+        }
+
+        // Tu excelente lógica de pantalla completa
+        button.addEventListener("click", async () => {
+            const container = document.querySelector(".player80s");
+            if (container && !document.fullscreenElement) {
+                try { await container.requestFullscreen(); } catch (err) { console.log(err); }
+            }
+            button.style.display = "none";
+            if (player) {
+                player.unMute();
+                player.playVideo();
+            }
+        });
+
+        // Salto automático al siguiente video de la línea de tiempo
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                const nextTransmission = getLiveVideo(testVideos);
+                player.loadVideoById({
+                    videoId: nextTransmission.videoId,
+                    startSeconds: nextTransmission.startSeconds
+                });
+            }
+        }
+    </script>
+</body>
+</html>
