@@ -3,7 +3,9 @@ const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
 const playlist = [
-    "https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
+    "URL_DIRECTA_VIDEO_1.mp4",
+    "URL_DIRECTA_VIDEO_2.mp4",
+    "URL_DIRECTA_VIDEO_3.mp4"
 ];
 let currentVideo = 0;
 
