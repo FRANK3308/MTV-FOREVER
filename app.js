@@ -3,9 +3,9 @@ const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
 const playlist = [
-    "https://vimeo.com/339648784?share=copy&fl=cl&fe=ci",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Symptoms_(Official_Music_Video).webm",
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Someofw_-_About_life_(music_video).webm"
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Aden_Said.webm",
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Depeche_Mode_-_It%27s_Called_A_Heart_%28Official_Video%29.webm",
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Depeche_Mode_-_Everything_Counts_%28Live_-_from_101%29_%28Official_Video%29.webm"
 ];
 let currentVideo = 0;
 
