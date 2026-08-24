@@ -3,9 +3,9 @@ const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
 const playlist = [
-    "URL_DIRECTA_VIDEO_1.mp4",
-    "URL_DIRECTA_VIDEO_2.mp4",
-    "URL_DIRECTA_VIDEO_3.mp4"
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cavetown_-_Green.webm",
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Symptoms_(Official_Music_Video).webm",
+    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Someofw_-_About_life_(music_video).webm"
 ];
 let currentVideo = 0;
 
