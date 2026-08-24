@@ -3,7 +3,7 @@ const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
 const playlist = [
-    "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cavetown_-_Green.webm",
+    "https://vimeo.com/339648784?share=copy&fl=cl&fe=ci",
     "https://commons.wikimedia.org/wiki/Special:Redirect/file/Symptoms_(Official_Music_Video).webm",
     "https://commons.wikimedia.org/wiki/Special:Redirect/file/Someofw_-_About_life_(music_video).webm"
 ];
