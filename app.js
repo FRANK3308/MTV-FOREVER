@@ -2,9 +2,14 @@ const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
-const playlist = [
-    "https://streamtape.com/v/jYP8XDqkabTzkVG/80s_can001.mp4",
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+    const playlist = [
+    {
+        id: "80s_can001",
+        src: "https://streamtape.com",
+        artista: "Prueba",
+        titulo: "Video de prueba",
+        anio: "1980"
+    }
 ];
 
 let currentVideo = 0;
