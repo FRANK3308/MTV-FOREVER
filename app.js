@@ -3,13 +3,9 @@ const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
     const playlist = [
-    {
-        id: "80s_can001",
-        src: "https://streamtape.com",
-        artista: "Prueba",
-        titulo: "Video de prueba",
-        anio: "1980"
-    }
+        
+        "https://archive.org/download/80s-can-001/80s_can001.mp4"
+        
 ];
 
 let currentVideo = 0;
