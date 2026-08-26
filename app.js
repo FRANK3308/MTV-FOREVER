@@ -3,7 +3,7 @@ const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
 const playlist = [
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+    "https://streamtape.com/v/jYP8XDqkabTzkVG/80s_can001.mp4",
     "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
 ];
 
