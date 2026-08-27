@@ -4,7 +4,7 @@ const container = document.querySelector(".player80s");
 
     const playlist = [
         
-        "https://archive.org/download/80s-can-001/80s_can001.mp4"
+        "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4"
         
 ];
 
