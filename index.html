@@ -193,531 +193,89 @@ body{
         transform:translate(-20px,-15px) rotate(-5deg);
     }
 }
-#mtv80s-page{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100vh;
-    background:#000;
-    z-index:999;
-    overflow:hidden;
+#mtv80s-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 999;
+    overflow: hidden;
 }
 
-.home-btn{
-    position:absolute;
-    top:20px;
-    right:30px;
-
-    padding:8px 18px;
-
-    border:2px solid #ff1493;
-    border-radius:20px;
-
-    background:black;
-    color:#ff1493;
-
-    font-weight:bold;
-    cursor:pointer;
-
-    box-shadow:
-    0 0 10px #ff1493,
-    0 0 20px #ff1493;
+.home-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    padding: 8px 18px;
+    border: 2px solid #ff1493;
+    border-radius: 20px;
+    background: black;
+    color: #ff1493;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff1493, 0 0 20px #ff1493;
+    z-index: 100;
 }
 
-.mini-forever{
-    position:absolute;
-    top:15px;
-    left:40px;
-
-    display:flex;
-    align-items:center;
-    gap:6px;
-
-    transform:none;
+.player80s {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 20;
 }
 
-.mini-forever img{
-    width:50px;
+#videoPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    background: black;
+    z-index: 1;
 }
 
-.mini-forever span{
-    color:#66ffff;
-    font-size:20px;
-    font-weight:900;
-    font-style:italic;
-
-    text-shadow:
-    0 0 5px #66ffff,
-    0 0 10px #66ffff;
-}
-.logo80s{
-    text-align:center;
-    margin-top:45px;
-}
-.logo80s img{
-    width:190px;
-
-    filter:
-    drop-shadow(0 0 15px #00ffff)
-    drop-shadow(0 0 30px #00ffff);
+.decoracion-triangulo {
+    position: absolute;
+    right: 50px;
+    bottom: 60px;
+    width: 45px;
+    height: 45px;
+    border: 4px solid #00ffff;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px #00ffff, 0 0 25px #00ffff, 0 0 45px #00ffff;
 }
 
-
-.player80s{
-    width:720px;
-    height:400px;
-
-    margin-top:15px;
-    margin-left:auto;
-    margin-right:auto;
-
-    padding:6px;
-
-    background:linear-gradient(
-        90deg,
-        #ff1493,
-        #00ffff
-    );
-
-    box-shadow:
-    0 0 25px #ff1493,
-    0 0 50px #00ffff;
-
-    position:relative;
-    z-index:20;
+.decoracion-circulo {
+    position: absolute;
+    right: 95px;
+    bottom: 25px;
+    width: 25px;
+    height: 25px;
+    border: 4px solid #ffd800;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ffd800, 0 0 25px #ffd800, 0 0 45px #ffd800;
 }
 
-.screen80s{
-    width:100%;
-    height:100%;
-
-    position:relative;
-
-    background:black;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    color:#ffffff;
-
-    font-size:35px;
-    font-weight:bold;
-}
-#player{
-    position:absolute;
-
-    inset:0;
-
-    width:100%;
-    height:100%;
-
-    background:black;
-
-    z-index:1;
+.decoracion-zigzag {
+    position: absolute;
+    right: 125px;
+    bottom: 75px;
+    width: 70px;
+    height: 45px;
+    transform: rotate(15deg);
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 120 24'%3E%3Cpath d='M2 12 Q12 2 22 12 T42 12 T62 12 T82 12 T102 12 T118 12' stroke='%23ff1493' stroke-width='4.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+    filter: drop-shadow(0 0 4px #ff1493) drop-shadow(0 0 12px #ff1493) drop-shadow(0 0 25px #ff1493);
 }
 
-#startChannel{
-    position:absolute;
 
-    top:50%;
-    left:50%;
-
-    transform:translate(-50%, -50%);
-
-    z-index:5;
-
-    padding:18px 40px;
-
-    font-size:22px;
-    font-weight:bold;
-
-    cursor:pointer;
-}
-.player{
-    position:relative;
-    z-index:10;
-}
-#videoPlayer{
-    position:absolute;
-    top:0;
-    left:0;
-
-    width:100%;
-    height:100%;
-
-    object-fit:contain;
-
-    display:block;
-
-    background:black;
-
-    z-index:1;
-}
-.circle-left,
-.circle-right{
-    position:absolute;
-    border-radius:50%;
-}
-
-.circle-left{
-    width:110px;
-    height:110px;
-    left:70px;
-    top:180px;
-
-    border:7px solid #00ffff;
-
-    box-shadow:
-    0 0 25px #00ffff,
-    0 0 50px #00ffff;
-}
-
-.circle-right{
-    width:110px;
-    height:110px;
-    right:70px;
-    top:180px;
-
-    border:7px solid #ff1493;
-
-    box-shadow:
-    0 0 25px #ff1493,
-    0 0 50px #ff1493;
-}
-.star80{
-    position:absolute;
-    top:140px;
-    right:250px;
-
-    color:#ff1493;
-    font-size:28px;
-
-    text-shadow:
-    0 0 10px #ff1493,
-    0 0 20px #ff1493;
-}
-
-.star80::before{
-    content:"✦";
-}
-.player80s{
-    position:relative;
-    z-index:20;
-}
-.shape1{
-    position:absolute;
-    left:80px;
-    top:90px;
-
-    width:45px;
-    height:45px;
-
-    border:4px solid #ff1493;
-
-    transform:rotate(45deg);
-
-    box-shadow:0 0 20px #ff1493;
-}
-
-.shape2{
-    position:absolute;
-    right:340px;
-    top:520px;
-    width:30px;
-    height:30px;
-    border:4px solid #00ffff;
-    transform:rotate(45deg);
-    box-shadow:0 0 20px #00ffff;
-}
-
-.shape3{
-    position:absolute;
-    right:190px;
-    top:500px;
-    width:70px;
-    height:5px;
-    background:#ffd800;
-    transform:rotate(-45deg);
-    box-shadow:0 0 20px #ffd800;
-}
-
-.shape4{
-    position:absolute;
-    right:230px;
-    top:150px;
-    color:#ff1493;
-    font-size:35px;
-    text-shadow:0 0 20px #ff1493;
-}
-
-.shape4::before{
-    content:"✦";
-}
-.shape5{
-    position:absolute;
-    left:90px;
-    bottom:330px;
-
-    color:#ff1493;
-    font-size:55px;
-
-    text-shadow:0 0 20px #ff1493;
-}
-
-.shape5::before{
-    content:"△";
-}
-
-.shape6{
-    position:absolute;
-    right:200px;
-    top:120px;
-
-    width:12px;
-    height:12px;
-
-    background:#00ffff;
-
-    border-radius:50%;
-
-    box-shadow:
-    0 0 15px #00ffff,
-    0 0 30px #00ffff;
-}
-
-.zigzag{
-    position:absolute;
-
-    right:165px;
-    top:300px;
-
-   width:85px;
-   height:95px;
-
-    transform:rotate(35deg);
-
-    background:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 24'%3E%3Cpath d='M2 12 Q12 2 22 12 T42 12 T62 12 T82 12 T102 12 T118 12' stroke='%23ff1493' stroke-width='4.5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E")
-    no-repeat center;
-
-    background-size:contain;
-
-    filter:
-        drop-shadow(0 0 6px #ff1493)
-        drop-shadow(0 0 14px #ff1493);
-}
-.triangle-dots{
-
-    position:absolute;
-    right:105px;
-    bottom:185px;
-
-
-
-    width:120px;
-    height:120px;
-
-}
-
-.triangle-dots .diag{
-    position:absolute;
-
-    left:32px;
-    bottom:10px;
-
-    width:106px;
-    height:4px;
-
-    background:#00ffff;
-
-    transform:rotate(-45deg);
-
-    transform-origin:left center;
-
-    border-radius:10px;
-
-    box-shadow:
-        0 0 8px #00ffff,
-        0 0 16px #00ffff;
-}
-.triangle-dots span{
-
-    position:absolute;
-
-    width:7px;
-    height:7px;
-
-    border-radius:50%;
-
-    background:#ff1493;
-
-    box-shadow:
-        0 0 6px #ff1493,
-        0 0 12px #ff1493;
-
-}
-
-.p1{ bottom:0; right:0; }
-
-.p2{ bottom:0; right:18px; }
-.p3{ bottom:0; right:36px; }
-.p4{ bottom:0; right:54px; }
-.p10{ bottom:0; right:72px; }
-.p11{ bottom:0; right:90px; }
-
-.p5{ bottom:18px; right:0; }
-.p6{ bottom:36px; right:0; }
-.p7{ bottom:54px; right:0; }
-.p8{ bottom:72px; right:0; }
-.p9{ bottom:90px; right:0; }
-
-.small-circle{
-    position:absolute;
-
-    left:200px;
-    bottom:210px;
-
-    width:58px;
-    height:58px;
-
-    border:4px solid #ff1493;
-    border-radius:50%;
-
-    box-shadow:
-        0 0 10px #ff1493,
-        0 0 22px #ff1493;
-}
-
-.spark{
-    position:absolute;
-
-    width:7px;
-    height:7px;
-
-    background:#ff4fd8;
-
-    transform:rotate(45deg);
-
-    box-shadow:
-        0 0 8px #ff4fd8,
-        0 0 16px #ff4fd8;
-
-    animation:twinkle 4s ease-in-out infinite;
-}
-
-.spark::before,
-.spark::after{
-    content:"";
-    position:absolute;
-    background:inherit;
-}
-
-.spark::before{
-    width:2px;
-    height:16px;
-    left:2.5px;
-    top:-4px;
-}
-
-.spark::after{
-    width:16px;
-    height:2px;
-    left:-4px;
-    top:2.5px;
-}
-
-.s1{ left:40px; top:40px; }
-
-.s2{ left:180px; top:120px; }
-
-.s3{ left:900px; top:50px; }
-
-.s4{ right:80px; top:60px; }
-
-.s5{ right:40px; top:260px; }
-
-.s6{ left:60px; bottom:380px; }
-
-.s7{ left:380px; bottom:340px; }
-
-.s8{ right:60px; bottom:380px; }
-
-.s9{ left:720px; top:320px; }
-
-.s10{ right:420px; bottom:120px; }
-
-.s11{ left:120px; bottom:120px; }
-
-.s12{ right:180px; bottom:80px; }
-    
-@keyframes twinkle{
-
-    0%,100%{
-        opacity:.5;
-        transform:rotate(45deg) scale(1);
-    }
-
-    50%{
-        opacity:1;
-        transform:rotate(45deg) scale(1.3);
-    }
-}
-
-.retro-grid{
-    position:absolute;
-    bottom:-460px;
-    left:50%;
-
-    width:2200px;
-    height:900px;
-
-    transform:
-    translateX(-50%)
-    perspective(1000px)
-    rotateX(63deg);
-
-    z-index:1;
-
-    overflow:hidden;
-
-    background:
-    repeating-linear-gradient(
-        90deg,
-        rgba(255,20,147,.8) 0px,
-        rgba(255,20,147,.8) 2px,
-        transparent 2px,
-        transparent 70px
-    ),
-    repeating-linear-gradient(
-        0deg,
-        rgba(0,255,255,.8) 0px,
-        rgba(0,255,255,.8) 2px,
-        transparent 2px,
-        transparent 70px
-    );
-  filter:
-  drop-shadow(0 0 6px #ff1493)
-  drop-shadow(0 0 6px #00ffff);
-
-  box-shadow:none;
- }   
-.retro-grid::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:radial-gradient(
-        ellipse at center,
-        transparent 45%,
-        rgba(0,0,0,.5) 75%,
-        #000 100%
-    );
-
-    pointer-events:none;
-}
 </style>
 </head>
 
@@ -820,120 +378,67 @@ THE MUSIC NEVER STOPS
 </div>
 
 <div id="mtv80s-page">
+    <button class="home-btn">HOME</button>
 
-<button class="home-btn">HOME</button>
+    <div id="streaming-details-80s" style="position:absolute; inset:0; background:linear-gradient(to right, #000000 45%, rgba(0,0,0,0.3) 100%), url('https://unsplash.com') no-repeat center; background-size:cover; z-index:10; display:flex; flex-direction:column; justify-content:center; text-align:left; padding-left:60px;">
+        <div style="margin-bottom:12px;">
+            <img src="MTV_80s_2022.png" style="width:230px; filter:drop-shadow(0 0 10px rgba(0,255,255,0.4));">
+        </div>
+        
+        <h1 style="font-size:36px; font-weight:bold; margin:0 0 4px 0; color:#fff; letter-spacing:1px;">MTV 80s</h1>
+        <p style="font-size:15px; color:#aaa; margin:0 0 14px 0; font-weight:500;">La música que marcó una generation.</p>
+        <p style="font-size:13px; color:#666; margin:0 0 16px 0;">Los mejores videoclips y momentos de los años 80.</p>
 
-<div class="mini-forever">
+        <div style="display:flex; gap:10px; margin-bottom:25px; font-size:12px; font-weight:bold; color:#888;">
+            <span style="border:1px solid #333; padding:2px 6px; border-radius:3px; background:#0a0a0a;">1980 - 1989</span>
+            <span style="border:1px solid #333; padding:2px 6px; border-radius:3px; background:#0a0a0a;">18+</span>
+            <span style="border:1px solid #333; padding:2px 6px; border-radius:3px; background:#0a0a0a;">HD</span>
+            <span style="border:1px solid #333; padding:2px 6px; border-radius:3px; background:#0a0a0a;">60FPS</span>
+        </div>
 
+        <div style="display:flex; align-items:center; gap:15px; margin-bottom:35px;">
+            <button id="startChannel" style="background:#ff1493; color:#fff; border:none; padding:12px 30px; font-size:16px; font-weight:bold; border-radius:30px; cursor:pointer; display:flex; align-items:center; gap:8px; box-shadow:0 0 15px rgba(255,20,147,0.4); transition:transform 0.2s;">
+                <span>▶</span> VER AHORA
+            </button>
+            <button style="background:rgba(255,255,255,0.08); color:#fff; border:1px solid #333; width:42px; height:42px; border-radius:50%; font-size:20px; cursor:pointer; display:flex; justify-content:center; align-items:center;">+</button>
+            <button style="background:rgba(255,255,255,0.08); color:#fff; border:1px solid #333; width:42px; height:42px; border-radius:50%; font-size:18px; cursor:pointer; display:flex; justify-content:center; align-items:center;">ⓘ</button>
+        </div>
 
-<img src="mtv-music-television-seeklogo.png" width="60">
-
-<span>FOREVER</span>
-
-</div>
-
-<div class="logo80s">
-
-  <img src="MTV_80s_2022.png">
-
-</div>
-
-<div class="star80"></div>
-
-<div class="circle-left"></div>
-<div class="circle-right"></div>
-<div class="shape1"></div>
-<div class="shape2"></div>
-<div class="shape3"></div>
-<div class="shape4"></div>
-<div class="shape5"></div>
-<div class="shape6"></div>
-    
-<div class="zigzag"></div>
-<div class="triangle-dots">
-
- <div class="diag"></div>
-
-<span class="p1"></span>
-<span class="p2"></span>
-<span class="p3"></span>
-<span class="p4"></span>
-<span class="p10"></span>
-<span class="p11"></span>
-
-<span class="p5"></span>
-<span class="p6"></span>
-<span class="p7"></span>
-<span class="p8"></span>
-<span class="p9"></span>
-
-</div>
-
-<div class="small-circle"></div>
-
-<div class="spark s1"></div>
-<div class="spark s2"></div>
-<div class="spark s3"></div>
-<div class="spark s4"></div>
-<div class="spark s5"></div>
-<div class="spark s6"></div>
-<div class="spark s7"></div>
-<div class="spark s8"></div>
-<div class="spark s9"></div>
-<div class="spark s10"></div>
-<div class="spark s11"></div>
-<div class="spark s12"></div>
-    
-<div class="player80s">
-    <video id="videoPlayer" playsinline></video>
-    
-    <div id="channel-logo" style="position:absolute; top:15px; right:20px; z-index:10; pointer-events:none;">
-        <img id="logo-img" src="MTV_80s_2022.png" style="width:90px; filter:drop-shadow(0 0 5px rgba(255,255,255,0.6));">
+        <div style="text-transform:uppercase; font-size:11px; font-weight:bold; color:#ff1493; letter-spacing:1px; margin-bottom:6px;">Descripción</div>
+        <p style="max-width:460px; font-size:14px; color:#999; margin:0; line-height:1.5;">Revive la época dorada de MTV. Rock, pop, new wave, synth-pop y mucho más. Disfruta los clásicos que definieron toda una generación.</p>
+        
+        <div class="decoracion-triangulo"></div>
+        <div class="decoracion-circulo"></div>
+        <div class="decoracion-zigzag"></div>
     </div>
 
-    <div id="custom-controls" style="position:absolute; inset:0; z-index:2; transition:opacity 0.4s ease; opacity:1;">
+    <div class="player80s" style="display:none; position:absolute; inset:0; width:100%; height:100%; z-index:20; background:#000;">
+        <video id="videoPlayer" playsinline></video>
         
-        <button id="ctrl-back" style="position:absolute; top:15px; left:20px; background:none; border:none; color:white; font-size:30px; cursor:pointer; text-shadow:0 0 8px black;">←</button>
-        
-        <button id="ctrl-lock" style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.6); border:1px solid white; border-radius:50%; width:45px; height:45px; font-size:20px; cursor:pointer; color:white; display:flex; justify-content:center; align-items:center; box-shadow:0 0 10px rgba(255,255,255,0.2);">🔓</button>
-        
-        <button id="ctrl-fullscreen" style="position:absolute; bottom:15px; right:20px; background:none; border:none; color:white; font-size:24px; cursor:pointer; text-shadow:0 0 8px black;">⛶</button>
+        <div id="channel-logo" style="position:absolute; top:15px; right:20px; z-index:10; pointer-events:none;">
+            <img id="logo-img" src="MTV_80s_2022.png" style="width:90px; filter:drop-shadow(0 0 5px rgba(255,255,255,0.6));">
+        </div>
+
+        <div id="custom-controls" style="position:absolute; inset:0; z-index:25; transition:opacity 0.4s ease; opacity:1;">
+            <button id="ctrl-back" style="position:absolute; top:15px; left:20px; background:none; border:none; color:white; font-size:30px; cursor:pointer; text-shadow:0 0 8px black;">←</button>
+            <button id="ctrl-lock" style="position:absolute; bottom:15px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.6); border:1px solid white; border-radius:50%; width:45px; height:45px; font-size:20px; cursor:pointer; color:white; display:flex; justify-content:center; align-items:center; box-shadow:0 0 10px rgba(255,255,255,0.2);">🔓</button>
+            <button id="ctrl-fullscreen" style="position:absolute; bottom:15px; right:20px; background:none; border:none; color:white; font-size:24px; cursor:pointer; text-shadow:0 0 8px black;">⛶</button>
+        </div>
     </div>
-
-    <button id="startChannel" style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); z-index:50; padding:18px 40px; font-size:22px; font-weight:bold; cursor:pointer;">
-        ENTRAR AL CANAL
-    </button>
-</div>
-
-<div class="retro-grid"></div>
-
-
-</div>
 </div>
 
 <script>
-
 const boton80s = document.querySelector(".mtv80s");
-
 boton80s.onclick = function(e){
-
     e.preventDefault();
-
     document.getElementById("home").style.display = "none";
-
     document.getElementById("mtv80s-page").style.display = "block";
 };
-
 document.querySelector(".home-btn").onclick = function(){
-
     document.getElementById("home").style.display = "block";
-
     document.getElementById("mtv80s-page").style.display = "none";
-
 };
-
 </script>
 <script src="app.js"></script>
-
 </body>
 </html>
