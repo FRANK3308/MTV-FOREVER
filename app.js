@@ -52,8 +52,8 @@ btnBack.onclick = function(e) {
     if (isLocked) return;
     
     video.pause();
-    document.getElementById("home").style.display = "block";
-    document.getElementById("mtv80s-page").style.display = "none";
+    document.querySelector(".player80s").style.display = "none";
+    document.getElementById("streaming-details-80s").style.display = "flex";
 };
 
 btnFullscreen.onclick = function(e) {
@@ -88,16 +88,19 @@ btnLock.onclick = function(e) {
 };
 
 button.addEventListener("click", async () => {
+    document.getElementById("streaming-details-80s").style.display = "none";
+    document.querySelector(".player80s").style.display = "block";
+
     if (!document.fullscreenElement) {
         await container.requestFullscreen().catch(err => {
             console.log("Error al activar pantalla completa:", err);
         });
     }
 
-    button.style.display = "none";
     playCurrentVideo();
     showControls();
 });
+
 
 video.addEventListener("ended", () => {
     currentVideo++;
