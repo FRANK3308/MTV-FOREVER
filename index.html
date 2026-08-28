@@ -223,14 +223,14 @@ body{
     position: absolute;
     right: 40px;
     bottom: 50px;
-    width: 65px;
-    height: 45px;
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 60 40'%3E%3Cpolygon points='5,20 55,5 55,35' fill='none' stroke='%2300ffff' stroke-width='4' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
-    background-size: contain;
+    width: 0;
+    height: 0;
+    border-top: 22px solid transparent;
+    border-bottom: 22px solid transparent;
+    border-right: 55px solid #00ffff;
     z-index: 100;
     filter: 
-        drop-shadow(0 0 4px #00ffff) 
-        drop-shadow(0 0 12px #00ffff) 
+        drop-shadow(0 0 8px #00ffff) 
         drop-shadow(0 0 25px #00ffff);
 }
 
@@ -245,24 +245,23 @@ body{
     z-index: 100;
     box-shadow: 
         0 0 10px #ffd800, 
-        0 0 20px #ffd800, 
-        0 0 35px #ffd800;
+        0 0 25px #ffd800, 
+        0 0 45px #ffd800;
 }
 
 .decoracion-zigzag {
     position: absolute;
-    right: 130px;
-    bottom: 35px;
-    width: 65px;
-    height: 35px;
-    transform: rotate(-10deg);
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' viewBox='0 0 120 24'%3E%3Cpath d='M2 12 Q12 2 22 12 T42 12 T62 12 T82 12 T102 12 T118 12' stroke='%23ff1493' stroke-width='5' stroke-linecap='round' fill='none'/%3E%3C/svg%3E") no-repeat center;
-    background-size: contain;
+    right: 120px;
+    bottom: 40px;
+    width: 60px;
+    height: 30px;
     z-index: 100;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 4px, #ff1493 4px, #ff1493 8px), repeating-linear-gradient(45deg, transparent, transparent 4px, #ff1493 4px, #ff1493 8px);
+    background-size: 20px 10px;
+    background-repeat: repeat-x;
     filter: 
-        drop-shadow(0 0 4px #ff1493) 
-        drop-shadow(0 0 12px #ff1493) 
-        drop-shadow(0 0 25px #ff1493);
+        drop-shadow(0 0 6px #ff1493) 
+        drop-shadow(0 0 20px #ff1493);
 }
 
 
