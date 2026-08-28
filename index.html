@@ -222,12 +222,13 @@ body{
 .decoracion-triangulo {
     position: absolute;
     right: 40px;
-    bottom: 80px;
+    bottom: 120px;
     width: 65px;
     height: 55px;
     clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
     background: #00ffff;
     z-index: 15;
+    transform: rotate(25deg);
     filter: drop-shadow(0 0 15px #00ffff);
 }
 
@@ -241,7 +242,7 @@ body{
 
 .decoracion-circulo {
     position: absolute;
-    right: 125px;
+    right: 45px;
     bottom: 25px;
     width: 32px;
     height: 32px;
@@ -255,14 +256,15 @@ body{
 
 .decoracion-zigzag {
     position: absolute;
-    right: 185px;
-    bottom: 30px;
-    width: 75px;
-    height: 45px;
+    right: 125px;
+    bottom: 45px;
+    width: 80px;
+    height: 50px;
     z-index: 15;
     display: flex;
     align-items: center;
     justify-content: center;
+    transform: rotate(-25deg);
     filter: 
         drop-shadow(0 0 6px #ff1493) 
         drop-shadow(0 0 20px #ff1493);
