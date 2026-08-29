@@ -54,6 +54,13 @@ btnBack.onclick = function(e) {
     video.pause();
     document.querySelector(".player80s").style.display = "none";
     document.getElementById("streaming-details-80s").style.display = "flex";
+    
+    if(history.state === "canal-80s") {
+        history.back();
+    } else {
+        document.getElementById("home").style.display = "block";
+        document.getElementById("mtv80s-page").style.display = "none";
+    }
 };
 
 btnFullscreen.onclick = function(e) {
