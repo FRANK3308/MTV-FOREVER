@@ -98,10 +98,10 @@ button.addEventListener("click", async () => {
     document.getElementById("streaming-details-80s").style.display = "none";
     document.querySelector(".player80s").style.display = "block";
 
-    if (!document.fullscreenElement) {
-        await container.requestFullscreen().catch(err => {
-            console.log("Error al activar pantalla completa:", err);
-        });
+    playCurrentVideo();
+    showControls();
+});
+
     }
 
     playCurrentVideo();
