@@ -429,14 +429,32 @@ THE MUSIC NEVER STOPS
 
 <script>
 const boton80s = document.querySelector(".mtv80s");
+
 boton80s.onclick = function(e){
     e.preventDefault();
     document.getElementById("home").style.display = "none";
     document.getElementById("mtv80s-page").style.display = "block";
+    
+    if(history.state !== "canal-80s") {
+        history.pushState("canal-80s", null, "");
+    }
 };
-document.querySelector(".home-btn").onclick = function(){
+
+function regresarAlHomeInterno() {
     document.getElementById("home").style.display = "block";
     document.getElementById("mtv80s-page").style.display = "none";
+}
+
+document.querySelector(".home-btn").onclick = function(){
+    if(history.state === "canal-80s") {
+        history.back();
+    } else {
+        regresarAlHomeInterno();
+    }
+};
+
+window.onpopstate = function(event) {
+    regresarAlHomeInterno();
 };
 </script>
 <script src="app.js"></script>
