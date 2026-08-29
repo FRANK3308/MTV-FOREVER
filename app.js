@@ -109,6 +109,7 @@ button.addEventListener("click", async () => {
 });
 
 
+
 video.addEventListener("ended", () => {
     currentVideo++;
 
