@@ -73,9 +73,11 @@ btnFullscreen.onclick = function(e) {
     }
 };
 
-btnLock.onclick = function(e) {
+btnBack.onclick = function(e) {
     e.stopPropagation();
-    isLocked = !isLocked;
+    if (isLocked) return;
+    history.back();
+};
 
     if (isLocked) {
         btnLock.innerText = "🔒";
@@ -96,7 +98,17 @@ btnLock.onclick = function(e) {
 button.addEventListener("click", async () => {
     document.getElementById("streaming-details-80s").style.display = "none";
     document.getElementById("home").style.display = "none";
+    
+    const botonHomeFisico = document.querySelector(".home-btn");
+    if (botonHomeFisico) {
+        botonHomeFisico.style.display = "none";
+    }
+
     document.querySelector(".player80s").style.display = "block";
+
+    if (history.state !== "video-80s") {
+        history.pushState("video-80s", null, "");
+    }
 
     if (!document.fullscreenElement) {
         await container.requestFullscreen().catch(err => {
@@ -107,6 +119,7 @@ button.addEventListener("click", async () => {
     playCurrentVideo();
     showControls();
 });
+
 
 video.addEventListener("ended", () => {
     currentVideo++;
