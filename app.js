@@ -47,20 +47,19 @@ function hideControls() {
 container.addEventListener("mousemove", showControls);
 container.addEventListener("touchstart", showControls);
 
-btnBack.onclick = function(e) {
+btnBack.onclick = async function(e) {
     e.stopPropagation();
     if (isLocked) return;
     
     video.pause();
+    
+    if (document.fullscreenElement) {
+        await document.exitFullscreen().catch(err => console.log(err));
+    }
+    
     document.querySelector(".player80s").style.display = "none";
     document.getElementById("streaming-details-80s").style.display = "flex";
-    
-    if(history.state === "canal-80s") {
-        history.back();
-    } else {
-        document.getElementById("home").style.display = "block";
-        document.getElementById("mtv80s-page").style.display = "none";
-    }
+    document.getElementById("home").style.display = "none";
 };
 
 btnFullscreen.onclick = function(e) {
@@ -96,6 +95,7 @@ btnLock.onclick = function(e) {
 
 button.addEventListener("click", async () => {
     document.getElementById("streaming-details-80s").style.display = "none";
+    document.getElementById("home").style.display = "none";
     document.querySelector(".player80s").style.display = "block";
 
     if (!document.fullscreenElement) {
@@ -108,15 +108,11 @@ button.addEventListener("click", async () => {
     showControls();
 });
 
-
-
 video.addEventListener("ended", () => {
     currentVideo++;
-
     if (currentVideo >= playlist.length) {
         currentVideo = 0;
     }
-
     playCurrentVideo();
 });
 
