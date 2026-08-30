@@ -437,18 +437,14 @@ boton80s.onclick = function(e){
     document.getElementById("streaming-details-80s").style.display = "flex";
     
     const reproductorCaja = document.querySelector(".player80s");
-    if (reproductorCaja) {
-        reproductorCaja.style.display = "none";
-    }
+    if (reproductorCaja) { reproductorCaja.style.display = "none"; }
     
     const botonHomeFisico = document.querySelector(".home-btn");
-    if (botonHomeFisico) {
-        botonHomeFisico.style.display = "inline-block";
-    }
+    if (botonHomeFisico) { botonHomeFisico.style.display = "inline-block"; }
 
-    if (history.state !== "canal-80s") {
-        history.pushState("canal-80s", null, "");
-    }
+    // Generamos dos pasos en el historial para blindar los dos retrocesos
+    history.pushState({page: "home-falso"}, null, "");
+    history.pushState({page: "cartelera"}, null, "");
 };
 
 document.querySelector(".home-btn").onclick = function(){
@@ -456,26 +452,19 @@ document.querySelector(".home-btn").onclick = function(){
     document.getElementById("mtv80s-page").style.display = "none";
     
     const videoElement = document.getElementById("videoPlayer");
-    if (videoElement) {
-        videoElement.pause();
-    }
+    if (videoElement) { videoElement.pause(); }
 };
 
 window.onpopstate = function(event) {
     const reproductorCaja = document.querySelector(".player80s");
-    
+    const videoElement = document.getElementById("videoPlayer");
+    const botonHomeFisico = document.querySelector(".home-btn");
+
     if (reproductorCaja && reproductorCaja.style.display === "block") {
-        const videoElement = document.getElementById("videoPlayer");
-        if (videoElement) {
-            videoElement.pause();
-        }
+        if (videoElement) { videoElement.pause(); }
         reproductorCaja.style.display = "none";
         document.getElementById("streaming-details-80s").style.display = "flex";
-        
-        const botonHomeFisico = document.querySelector(".home-btn");
-        if (botonHomeFisico) {
-            botonHomeFisico.style.display = "inline-block";
-        }
+        if (botonHomeFisico) { botonHomeFisico.style.display = "inline-block"; }
     } else {
         document.getElementById("home").style.display = "block";
         document.getElementById("mtv80s-page").style.display = "none";
