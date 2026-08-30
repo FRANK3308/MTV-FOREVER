@@ -435,57 +435,51 @@ boton80s.onclick = function(e){
     document.getElementById("home").style.display = "none";
     document.getElementById("mtv80s-page").style.display = "block";
     document.getElementById("streaming-details-80s").style.display = "flex";
-    document.querySelector(".player80s").style.display = "none";
+    
+    const reproductorCaja = document.querySelector(".player80s");
+    if (reproductorCaja) {
+        reproductorCaja.style.display = "none";
+    }
     
     const botonHomeFisico = document.querySelector(".home-btn");
     if (botonHomeFisico) {
         botonHomeFisico.style.display = "inline-block";
     }
-    
-    if(history.state !== "canal-80s") {
+
+    if (history.state !== "canal-80s") {
         history.pushState("canal-80s", null, "");
     }
 };
 
-async function controlarRetrocesoCompleto() {
+document.querySelector(".home-btn").onclick = function(){
+    document.getElementById("home").style.display = "block";
+    document.getElementById("mtv80s-page").style.display = "none";
+    
     const videoElement = document.getElementById("videoPlayer");
     if (videoElement) {
         videoElement.pause();
     }
+};
+
+window.onpopstate = function(event) {
+    const reproductorCaja = document.querySelector(".player80s");
     
-    if (document.fullscreenElement) {
-        await document.exitFullscreen().catch(err => console.log(err));
-    }
-    
-    const playerCaja = document.querySelector(".player80s");
-    const botonHomeFisico = document.querySelector(".home-btn");
-    
-    if (playerCaja && playerCaja.style.display === "block") {
-        playerCaja.style.display = "none";
+    if (reproductorCaja && reproductorCaja.style.display === "block") {
+        const videoElement = document.getElementById("videoPlayer");
+        if (videoElement) {
+            videoElement.pause();
+        }
+        reproductorCaja.style.display = "none";
         document.getElementById("streaming-details-80s").style.display = "flex";
-        document.getElementById("home").style.display = "none";
+        
+        const botonHomeFisico = document.querySelector(".home-btn");
         if (botonHomeFisico) {
             botonHomeFisico.style.display = "inline-block";
-        }
-        if (history.state !== "canal-80s") {
-            history.pushState("canal-80s", null, "");
         }
     } else {
         document.getElementById("home").style.display = "block";
         document.getElementById("mtv80s-page").style.display = "none";
     }
-}
-
-document.querySelector(".home-btn").onclick = async function(){
-    if (document.fullscreenElement) {
-        await document.exitFullscreen().catch(err => console.log(err));
-    }
-    document.getElementById("home").style.display = "block";
-    document.getElementById("mtv80s-page").style.display = "none";
-};
-
-window.onpopstate = function(event) {
-    controlarRetrocesoCompleto();
 };
 </script>
 <script src="app.js"></script>
