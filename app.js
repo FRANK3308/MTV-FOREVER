@@ -5,6 +5,7 @@ const container = document.querySelector(".player80s");
 const playlist = [
     
     "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4"
+    
 ];
 
 let currentVideo = 0;
