@@ -133,26 +133,20 @@ video.addEventListener("ended", () => {
 showControls();
 
 if (video) {
-    video.addEventListener("timeupdate", () => {
-        const currentTime = video.currentTime;
-        const duration = video.duration;
-        const creditosBox = document.getElementById("creditos-box");
-        
-        if (!creditosBox || !duration) return;
+    video.addEventListener("play", () => {
+        const logoBox = document.getElementById("channel-logo");
+        if (logoBox) {
+            logoBox.style.display = "flex";
+            setTimeout(() => { logoBox.style.opacity = "1"; }, 10);
+        }
+    });
 
-        const tiempoFinalInicio = duration - 32;
-        const mostrarAlInicio = (currentTime >= 12 && currentTime <= 27);
-        const mostrarAlFinal = (currentTime >= tiempoFinalInicio && currentTime <= (tiempoFinalInicio + 15));
-
-        if (mostrarAlInicio || mostrarAlFinal) {
-            creditosBox.style.display = "block";
-            setTimeout(() => { creditosBox.style.opacity = "1"; }, 10);
-        } else {
-            creditosBox.style.opacity = "0";
+    video.addEventListener("pause", () => {
+        const logoBox = document.getElementById("channel-logo");
+        if (logoBox) {
+            logoBox.style.opacity = "0";
             setTimeout(() => { 
-                if (creditosBox.style.opacity === "0") {
-                    creditosBox.style.display = "none"; 
-                }
+                if (logoBox.style.opacity === "0") { logoBox.style.display = "none"; }
             }, 500);
         }
     });
