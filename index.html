@@ -275,27 +275,33 @@ body{
 }
 #channel-logo {
     position: absolute;
-    top: 35px;
-    left: 55px;
+    top: 40px;
+    left: 45px;
     z-index: 10;
     pointer-events: none;
     display: none;
-    align-items: center;
-    gap: 18px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+    width: 500px;
+    height: 120px;
 }
+
 #logo-img {
-    width: 125px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 135px;
+    height: auto;
     filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.8));
 }
 .programa-texto {
+    position: absolute;
+    top: 42px;
+    left: 155px;
     color: #ffffff;
     font-family: 'Arial Black', sans-serif;
     font-size: 21px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
     font-weight: 900;
-    margin-top: -15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    white-space: nowrap;
 }
 #custom-controls button {
     background: none;
@@ -312,7 +318,7 @@ body{
 }
 .creditos-video {
     position: absolute;
-    bottom: 75px;
+    bottom: 65px;
     left: 65px;
     z-index: 10;
     font-family: 'Arial Black', sans-serif;
@@ -324,25 +330,27 @@ body{
     transition: opacity 0.5s ease;
 }
 .creditos-artista {
-    font-size: 29px;
+    font-size: 33px;
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
     letter-spacing: 0.5px;
 }
+
 .creditos-cancion {
-    font-size: 26px;
+    font-size: 29px;
     font-weight: 900;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
 .creditos-album {
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 900;
     color: #e5e5e5;
-    margin-bottom: 3px;
+    margin-bottom: 2px;
 }
+
 .creditos-anio {
-    font-size: 23px;
+    font-size: 25px;
     font-weight: 900;
     color: #e5e5e5;
 }
