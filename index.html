@@ -434,27 +434,46 @@ boton80s.onclick = function(e){
     e.preventDefault();
     document.getElementById("home").style.display = "none";
     document.getElementById("mtv80s-page").style.display = "block";
+    document.getElementById("streaming-details-80s").style.display = "flex";
+    document.querySelector(".player80s").style.display = "none";
     
     if(history.state !== "canal-80s") {
         history.pushState("canal-80s", null, "");
     }
 };
 
-function regresarAlHomeInterno() {
-    document.getElementById("home").style.display = "block";
-    document.getElementById("mtv80s-page").style.display = "none";
+async function controlarRetrocesoCompleto() {
+    const videoElement = document.getElementById("videoPlayer");
+    
+    if (videoElement) {
+        videoElement.pause();
+    }
+    
+    if (document.fullscreenElement) {
+        await document.exitFullscreen().catch(err => console.log(err));
+    }
+    
+    const playerCaja = document.querySelector(".player80s");
+    if (playerCaja && playerCaja.style.display === "block") {
+        playerCaja.style.display = "none";
+        document.getElementById("streaming-details-80s").style.display = "flex";
+        document.getElementById("home").style.display = "none";
+    } else {
+        document.getElementById("home").style.display = "block";
+        document.getElementById("mtv80s-page").style.display = "none";
+    }
 }
 
-document.querySelector(".home-btn").onclick = function(){
-    if(history.state === "canal-80s") {
-        history.back();
-    } else {
-        regresarAlHomeInterno();
+document.querySelector(".home-btn").onclick = async function(){
+    if (document.fullscreenElement) {
+        await document.exitFullscreen().catch(err => console.log(err));
     }
+    document.getElementById("home").style.display = "block";
+    document.getElementById("mtv80s-page").style.display = "none";
 };
 
 window.onpopstate = function(event) {
-    regresarAlHomeInterno();
+    controlarRetrocesoCompleto();
 };
 </script>
 <script src="app.js"></script>
