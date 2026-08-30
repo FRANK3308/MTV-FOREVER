@@ -1,10 +1,9 @@
 const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel");
-const container = document.getElementById("mtv80s-page");
+const container = document.querySelector(".player80s");
 
 const playlist = [
-    
-    "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4"
+    "https://archive.org"
 ];
 
 let currentVideo = 0;
@@ -20,7 +19,6 @@ let isLocked = false;
 function playCurrentVideo() {
     video.src = playlist[currentVideo];
     video.load();
-
     video.play().catch(error => {
         console.log("Error de reproducción:", error);
     });
@@ -29,9 +27,7 @@ function playCurrentVideo() {
 function showControls() {
     controlsLayer.style.opacity = "1";
     controlsLayer.style.pointerEvents = "auto";
-    
     clearTimeout(controlsTimeout);
-    
     if (!isLocked) {
         controlsTimeout = setTimeout(hideControls, 3000);
     }
@@ -44,46 +40,20 @@ function hideControls() {
     }
 }
 
-container.addEventListener("mousemove", showControls);
-container.addEventListener("touchstart", showControls);
+if (container) {
+    container.addEventListener("mousemove", showControls);
+    container.addEventListener("touchstart", showControls);
+}
 
-btnBack.onclick = async function(e) {
+btnBack.onclick = function(e) {
     e.stopPropagation();
     if (isLocked) return;
     
     video.pause();
     
-    if (document.fullscreenElement) {
-        await document.exitFullscreen().catch(err => console.log(err));
+    if (container) {
+        container.style.display = "none";
     }
-    
-    document.querySelector(".player80s").style.display = "none";
-    document.getElementById("streaming-details-80s").style.display = "flex";
-    document.getElementById("home").style.display = "none";
-};
-
-btnFullscreen.onclick = function(e) {
-    e.stopPropagation();
-    if (isLocked) return;
-
-    if (!document.fullscreenElement) {
-        container.requestFullscreen().catch(err => console.log(err));
-    } else {
-        document.exitFullscreen();
-    }
-};
-
-btnBack.onclick = async function(e) {
-    e.stopPropagation();
-    if (isLocked) return;
-    
-    video.pause();
-    
-    if (document.fullscreenElement) {
-        await document.exitFullscreen().catch(err => console.log(err));
-    }
-    
-    document.querySelector(".player80s").style.display = "none";
     document.getElementById("streaming-details-80s").style.display = "flex";
     document.getElementById("home").style.display = "none";
     
@@ -93,6 +63,20 @@ btnBack.onclick = async function(e) {
     }
 };
 
+btnFullscreen.onclick = function(e) {
+    e.stopPropagation();
+    if (isLocked) return;
+
+    if (!document.fullscreenElement && container) {
+        container.requestFullscreen().catch(err => console.log(err));
+    } else {
+        document.exitFullscreen();
+    }
+};
+
+btnLock.onclick = function(e) {
+    e.stopPropagation();
+    isLocked = !isLocked;
 
     if (isLocked) {
         btnLock.innerText = "🔒";
@@ -119,19 +103,18 @@ button.addEventListener("click", async () => {
         botonHomeFisico.style.display = "none";
     }
 
-    document.querySelector(".player80s").style.display = "block";
-
-    if (!document.fullscreenElement) {
-        await container.requestFullscreen().catch(err => {
-            console.log("Error al activar pantalla completa:", err);
-        });
+    if (container) {
+        container.style.display = "block";
+        if (!document.fullscreenElement) {
+            await container.requestFullscreen().catch(err => {
+                console.log("Error al activar pantalla completa:", err);
+            });
+        }
     }
 
     playCurrentVideo();
     showControls();
 });
-
-
 
 video.addEventListener("ended", () => {
     currentVideo++;
