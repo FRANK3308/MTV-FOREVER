@@ -437,6 +437,11 @@ boton80s.onclick = function(e){
     document.getElementById("streaming-details-80s").style.display = "flex";
     document.querySelector(".player80s").style.display = "none";
     
+    const botonHomeFisico = document.querySelector(".home-btn");
+    if (botonHomeFisico) {
+        botonHomeFisico.style.display = "inline-block";
+    }
+    
     if(history.state !== "canal-80s") {
         history.pushState("canal-80s", null, "");
     }
@@ -444,7 +449,6 @@ boton80s.onclick = function(e){
 
 async function controlarRetrocesoCompleto() {
     const videoElement = document.getElementById("videoPlayer");
-    
     if (videoElement) {
         videoElement.pause();
     }
@@ -454,10 +458,18 @@ async function controlarRetrocesoCompleto() {
     }
     
     const playerCaja = document.querySelector(".player80s");
+    const botonHomeFisico = document.querySelector(".home-btn");
+    
     if (playerCaja && playerCaja.style.display === "block") {
         playerCaja.style.display = "none";
         document.getElementById("streaming-details-80s").style.display = "flex";
         document.getElementById("home").style.display = "none";
+        if (botonHomeFisico) {
+            botonHomeFisico.style.display = "inline-block";
+        }
+        if (history.state !== "canal-80s") {
+            history.pushState("canal-80s", null, "");
+        }
     } else {
         document.getElementById("home").style.display = "block";
         document.getElementById("mtv80s-page").style.display = "none";
