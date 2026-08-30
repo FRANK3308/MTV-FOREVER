@@ -73,11 +73,26 @@ btnFullscreen.onclick = function(e) {
     }
 };
 
-btnBack.onclick = function(e) {
+btnBack.onclick = async function(e) {
     e.stopPropagation();
     if (isLocked) return;
-    history.back();
+    
+    video.pause();
+    
+    if (document.fullscreenElement) {
+        await document.exitFullscreen().catch(err => console.log(err));
+    }
+    
+    document.querySelector(".player80s").style.display = "none";
+    document.getElementById("streaming-details-80s").style.display = "flex";
+    document.getElementById("home").style.display = "none";
+    
+    const botonHomeFisico = document.querySelector(".home-btn");
+    if (botonHomeFisico) {
+        botonHomeFisico.style.display = "inline-block";
+    }
 };
+
 
     if (isLocked) {
         btnLock.innerText = "🔒";
@@ -106,10 +121,6 @@ button.addEventListener("click", async () => {
 
     document.querySelector(".player80s").style.display = "block";
 
-    if (history.state !== "video-80s") {
-        history.pushState("video-80s", null, "");
-    }
-
     if (!document.fullscreenElement) {
         await container.requestFullscreen().catch(err => {
             console.log("Error al activar pantalla completa:", err);
@@ -119,6 +130,7 @@ button.addEventListener("click", async () => {
     playCurrentVideo();
     showControls();
 });
+
 
 
 video.addEventListener("ended", () => {
