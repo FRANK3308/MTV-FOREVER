@@ -47,11 +47,15 @@ if (container) {
     container.addEventListener("touchstart", showControls);
 }
 
-btnBack.onclick = function(e) {
+btnBack.onclick = async function(e) {
     e.stopPropagation();
     if (isLocked) return;
     
     video.pause();
+    
+    if (document.fullscreenElement) {
+        await document.exitFullscreen().catch(err => console.log(err));
+    }
     
     if (container) {
         container.style.display = "none";
