@@ -23,7 +23,14 @@ let controlsTimeout;
 let isLocked = false;
 
 function playCurrentVideo() {
-    video.src = playlist[currentVideo];
+    const videoActual = playlist[currentVideo];
+    video.src = videoActual.url;
+    
+    document.getElementById("cred-artista").innerText = atob(videoActual.artista);
+    document.getElementById("cred-cancion").innerText = atob(videoActual.cancion);
+    document.getElementById("cred-album").innerText = atob(videoActual.album);
+    document.getElementById("cred-anio").innerText = atob(videoActual.anio);
+    
     video.load();
     video.play().catch(error => {
         console.log("Error de reproducción:", error);
