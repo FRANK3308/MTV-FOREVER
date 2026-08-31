@@ -1,15 +1,11 @@
 const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel");
-const container = document.getElementById("mtv80s-page");
+const container = document.querySelector(".player80s");
 
 const playlist = [
-    
-    url:"https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4",
-    artista: "QS1IQQ==", 
-    cancion: "IlRha2UgT24gTWUi",
-    album: "SHVudGluZyBIaWdoIGFuZCBMb3c=",
-    anio: "MTk4NQ=="
-    
+    "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4",
+    "https://archive.org/download/80s-can-002/80s_can002.mp4",
+    "https://archive.org/download/80s-003/80s_003.mp4"
 ];
 
 let currentVideo = 0;
@@ -22,14 +18,23 @@ const btnFullscreen = document.getElementById("ctrl-fullscreen");
 let controlsTimeout;
 let isLocked = false;
 
+// DICCIONARIO ANTI-BOTS INDEPENDIENTE
+const baseDatosOculta = {
+    0: { a: "QS1IQQ==", c: "IlRha2UgT24gTWUi", b: "SHVudGluZyBIaWdoIGFuZCBMb3c=", y: "MTk4NQ==" },
+    1: { a: "TUlDSEFFTCBKQUNLU09O", c: "IkJpbGxpZSBKZWFuIg==", b: "VGhyaWxsZXI=", y: "MTk4Mw==" },
+    2: { a: "R1VOUyBOJyBST1NFUw==", c: "IlN3ZWV0IENoaWxkIE8nIE1pbmUi", b: "QXBwZXRpdGUgZm9yIERlc3RydWN0aW9u", y: "MTk4Nw==" }
+};
+
 function playCurrentVideo() {
-    const videoActual = playlist[currentVideo];
-    video.src = videoActual.url;
+    video.src = playlist[currentVideo];
     
-    document.getElementById("cred-artista").innerText = atob(videoActual.artista);
-    document.getElementById("cred-cancion").innerText = atob(videoActual.cancion);
-    document.getElementById("cred-album").innerText = atob(videoActual.album);
-    document.getElementById("cred-anio").innerText = atob(videoActual.anio);
+    const info = baseDatosOculta[currentVideo];
+    if (info) {
+        document.getElementById("cred-artista").innerText = atob(info.a);
+        document.getElementById("cred-cancion").innerText = atob(info.c);
+        document.getElementById("cred-album").innerText = atob(info.b);
+        document.getElementById("cred-anio").innerText = atob(info.y);
+    }
     
     video.load();
     video.play().catch(error => {
@@ -83,7 +88,6 @@ btnBack.onclick = async function(e) {
 btnFullscreen.onclick = function(e) {
     e.stopPropagation();
     if (isLocked) return;
-
     if (!document.fullscreenElement && container) {
         container.requestFullscreen().catch(err => console.log(err));
     } else {
@@ -94,7 +98,6 @@ btnFullscreen.onclick = function(e) {
 btnLock.onclick = function(e) {
     e.stopPropagation();
     isLocked = !isLocked;
-
     if (isLocked) {
         btnLock.innerText = "🔒";
         btnLock.style.color = "white";
@@ -119,7 +122,6 @@ button.addEventListener("click", async () => {
     if (botonHomeFisico) {
         botonHomeFisico.style.display = "none";
     }
-
     if (container) {
         container.style.display = "block";
         if (!document.fullscreenElement) {
@@ -128,7 +130,6 @@ button.addEventListener("click", async () => {
             });
         }
     }
-
     playCurrentVideo();
     showControls();
 });
@@ -151,7 +152,6 @@ if (video) {
             setTimeout(() => { logoBox.style.opacity = "1"; }, 10);
         }
     });
-
     video.addEventListener("pause", () => {
         const logoBox = document.getElementById("channel-logo");
         if (logoBox) {
@@ -161,18 +161,15 @@ if (video) {
             }, 500);
         }
     });
-
     video.addEventListener("timeupdate", () => {
         const currentTime = video.currentTime;
         const duration = video.duration;
         const creditosBox = document.getElementById("creditos-box");
         
         if (!creditosBox || !duration) return;
-
         const tiempoFinalInicio = duration - 32;
         const mostrarAlInicio = (currentTime >= 12 && currentTime <= 27);
         const mostrarAlFinal = (currentTime >= tiempoFinalInicio && currentTime <= (tiempoFinalInicio + 15));
-
         if (mostrarAlInicio || mostrarAlFinal) {
             creditosBox.style.display = "block";
             setTimeout(() => { creditosBox.style.opacity = "1"; }, 10);
@@ -186,4 +183,3 @@ if (video) {
         }
     });
 }
-
