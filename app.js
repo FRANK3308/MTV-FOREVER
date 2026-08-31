@@ -2,7 +2,7 @@ const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
-const playlistOriginal = [
+const playlist = [
     
     "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4",
     "https://archive.org/download/80s-002/80s_002.mp4",
@@ -16,8 +16,7 @@ const diccionarioCreditos = {
     "https://archive.org": { a: "R3VucyBOJyBSb3Nlcw==", c: "IlN3ZWV0IENoaWxkIE8nIE1pbmUi", b: "QXBwZXRpdGUgZm9yIERlc3RydWN0aW9u", y: "MTk4Nw==" }
 };
 
-let playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
-let currentVideo = 0;
+let currentVideo = Math.floor(Math.random() * playlist.length);
 
 const controlsLayer = document.getElementById("custom-controls");
 const btnBack = document.getElementById("ctrl-back");
@@ -133,20 +132,13 @@ button.addEventListener("click", async () => {
             });
         }
     }
-    
-    playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
-    currentVideo = 0;
-    
     playCurrentVideo();
     showControls();
 });
 
 video.addEventListener("ended", () => {
-    currentVideo++;
-    if (currentVideo >= playlist.length) {
-        playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
-        currentVideo = 0;
-    }
+    // Elige el siguiente video al azar de forma directa e inteligente
+    currentVideo = Math.floor(Math.random() * playlist.length);
     playCurrentVideo();
 });
 
