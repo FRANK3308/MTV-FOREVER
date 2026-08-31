@@ -2,21 +2,23 @@ const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
-// Lista de reproducción con URLs limpias
+
 const playlistOriginal = [
+    
     "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4",
     "https://archive.org/download/80s-can-002/80s_can002.mp4",
     "https://archive.org/download/80s-003/80s_003.mp4"
+    
 ];
 
-// Diccionario de datos encriptados anti-bots (Artistas corregidos a minúsculas)
+
 const diccionarioCreditos = {
     "https://archive.org": { a: "QS1oYQ==", c: "IlRha2UgT24gTWUi", b: "SHVudGluZyBIaWdoIGFuZCBMb3c=", y: "MTk4NQ==" },
     "https://archive.org": { a: "TWljaGFlbCBKYWNrc29u", c: "IkJpbGxpZSBKZWFuIg==", b: "VGhyaWxsZXI=", y: "MTk4Mw==" },
     "https://archive.org": { a: "R3VucyBOJyBSb3Nlcw==", c: "IlN3ZWV0IENoaWxkIE8nIE1pbmUi", b: "QXBwZXRpdGUgZm9yIERlc3RydWN0aW9u", y: "MTk4Nw==" }
 };
 
-// Generador de orden aleatorio automático (Shuffle)
+
 let playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
 let currentVideo = 0;
 
@@ -135,7 +137,7 @@ button.addEventListener("click", async () => {
         }
     }
     
-    // Al dar clic, barajamos la lista de nuevo para que siempre sea distinta
+    
     playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
     currentVideo = 0;
     
