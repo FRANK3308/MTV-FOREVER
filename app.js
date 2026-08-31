@@ -11,9 +11,11 @@ const playlist = [
 ];
 
 const diccionarioCreditos = {
+    
     "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4": { a: "QS1vYQ==", c: "IlRha2UgT24gTWUi", b: "SHVudGluZyBIaWdoIGFuZCBMb3c=", y: "MTk4NQ==" },
     "https://archive.org/download/80s-002/80s_002.mp4": { a: "TWljaGFlbCBKYWNrc29u", c: "IkJpbGxpZSBKZWFuIg==", b: "VGhyaWxsZXI=", y: "MTk4Mw==" },
     "https://archive.org/download/80s-003/80s_003.mp4": { a: "R3VucyBOJyBSb3Nlcw==", c: "IlN3ZWV0IENoaWxkIE8nIE1pbmUi", b: "QXBwZXRpdGUgZm9yIERlc3RydWN0aW9u", y: "MTk4Nw==" }
+    
 };
 
 let currentVideo = Math.floor(Math.random() * playlist.length);
