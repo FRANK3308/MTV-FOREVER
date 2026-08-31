@@ -2,22 +2,17 @@ const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
-
 const playlistOriginal = [
-    
-    "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4",
-    "https://archive.org/download/80s-can-002/80s_can002.mp4",
+    ""https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4"",
+    "https://archive.org/download/80s-002/80s_002.mp4",
     "https://archive.org/download/80s-003/80s_003.mp4"
-    
 ];
 
-
 const diccionarioCreditos = {
-    "https://archive.org": { a: "QS1oYQ==", c: "IlRha2UgT24gTWUi", b: "SHVudGluZyBIaWdoIGFuZCBMb3c=", y: "MTk4NQ==" },
+    "https://archive.org": { a: "QS1vYQ==", c: "IlRha2UgT24gTWUi", b: "SHVudGluZyBIaWdoIGFuZCBMb3c=", y: "MTk4NQ==" },
     "https://archive.org": { a: "TWljaGFlbCBKYWNrc29u", c: "IkJpbGxpZSBKZWFuIg==", b: "VGhyaWxsZXI=", y: "MTk4Mw==" },
     "https://archive.org": { a: "R3VucyBOJyBSb3Nlcw==", c: "IlN3ZWV0IENoaWxkIE8nIE1pbmUi", b: "QXBwZXRpdGUgZm9yIERlc3RydWN0aW9u", y: "MTk4Nw==" }
 };
-
 
 let playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
 let currentVideo = 0;
@@ -137,7 +132,6 @@ button.addEventListener("click", async () => {
         }
     }
     
-    
     playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
     currentVideo = 0;
     
@@ -148,7 +142,6 @@ button.addEventListener("click", async () => {
 video.addEventListener("ended", () => {
     currentVideo++;
     if (currentVideo >= playlist.length) {
-        // Al terminar toda la tanda, vuelve a barajar para no repetir el mismo orden
         playlist = [...playlistOriginal].sort(() => Math.random() - 0.5);
         currentVideo = 0;
     }
