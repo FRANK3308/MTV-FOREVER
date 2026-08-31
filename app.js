@@ -1,6 +1,6 @@
 const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel");
-const container = document.querySelector(".player80s");
+const container = document.getElementById("mtv80s-page");
 
 const playlist = [
     
