@@ -3,7 +3,7 @@ const button = document.getElementById("startChannel");
 const container = document.querySelector(".player80s");
 
 const playlistOriginal = [
-    ""https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4"",
+    "https://archive.org/download/vid-20260826-124651/VID_20260826_124651.mp4",
     "https://archive.org/download/80s-002/80s_002.mp4",
     "https://archive.org/download/80s-003/80s_003.mp4"
 ];
