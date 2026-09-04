@@ -379,6 +379,79 @@ body{
     transform: scale(0.96) !important;
 }
 
+#mtv90s-page, #mtv00s-page {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 999;
+    overflow: hidden;
+}
+
+#streaming-details-90s {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 45%, #000000 80%), url('backgrounds/mtv_90s_bg.jpeg') no-repeat center;
+    background-size: cover;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding-left: 60px;
+}
+
+#streaming-details-00s {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 45%, #000000 80%), url('backgrounds/mtv_00s_bg.png') no-repeat center;
+    background-size: cover;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding-left: 60px;
+}
+
+.decoracion-equis {
+    position: absolute;
+    right: 45px;
+    bottom: 110px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 75px;
+    color: #ffd800;
+    z-index: 15;
+    transform: rotate(15deg);
+    filter: drop-shadow(0 0 15px #ffd800);
+}
+
+.decoracion-burbuja {
+    position: absolute;
+    right: 45px;
+    bottom: 30px;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 182, 217, 0.4);
+    border: 3px solid #ffb6d9;
+    border-radius: 50%;
+    z-index: 15;
+    box-shadow: 0 0 25px rgba(255, 182, 217, 0.6);
+}
+
+.decoracion-destello {
+    position: absolute;
+    right: 135px;
+    bottom: 60px;
+    font-size: 65px;
+    color: #ffffff;
+    z-index: 15;
+    filter: drop-shadow(0 0 20px #ffffff);
+}
+
 </style>
 </head>
 
@@ -542,6 +615,56 @@ THE MUSIC NEVER STOPS
 </div>
 </div>
 
+<div id="mtv90s-page">
+    <button class="home-btn-90s" style="position: absolute !important; top: 20px !important; right: 30px !important; width: auto !important; height: auto !important; display: inline-block !important; padding: 8px 18px !important; border: 2px solid #ffd800 !important; border-radius: 20px !important; background: black !important; color: #ffd800 !important; font-weight: bold !important; cursor: pointer !important; box-shadow: 0 0 10px #ffd800, 0 0 20px #ffd800 !important; z-index: 100 !important;">HOME</button>
+    <div id="streaming-details-90s">
+        <div style="margin-bottom:12px; margin-top: 40px;">
+            <img src="logo_mtv90s.svg" style="width:230px; filter:drop-shadow(0 0 10px rgba(255,216,0,0.4));">
+        </div>
+        <h1 style="font-size:38px; font-weight:bold; margin:0 0 6px 0; color:#fff; letter-spacing:1px;">MTV 90s</h1>
+        <p style="font-size:16px; color:#aaa; margin:0 0 6px 0; font-weight:500;">✓ Smells Like 90s.</p>
+        <p style="font-size:16px; color:#aaa; margin:0 0 16px 0; font-weight:500;">✓ La era del estallido Alternativo y Grunge.</p>
+        <div style="display:flex; gap:15px; margin-bottom:14px; font-size:14px; font-weight:bold; color:#888;">
+            <span>1990 - 1999</span>
+        </div>
+        <div style="display:flex; align-items:center; margin-bottom:30px;">
+            <button id="startChannel90s" style="background:#ffd800; color:#000; border:none; padding:12px 35px; font-size:16px; font-weight:bold; border-radius:30px; cursor:pointer; display:flex; align-items:center; gap:8px; box-shadow:0 0 15px rgba(255,216,0,0.4); transition:transform 0.2s;">
+                <span>▶</span> VER AHORA
+            </button>
+        </div>
+        <div style="text-transform:uppercase; font-size:11px; font-weight:bold; color:#ffd800; letter-spacing:1px; margin-bottom:6px;">Descripción</div>
+        <p style="max-width:520px; font-size:15px; color:#b3b3b3; margin:0; line-height:1.6; font-weight:400; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">Sintoniza la revolución musical que sacudió los cimientos del rock y el pop global. La crudeza de las guitarras distorsionadas de Seattle, el nacimiento de las leyendas del Britpop, el estallido del Hip-Hop de la costa dorada y los primeros pasos del eurodance electrónico, reunidos en un viaje puramente noventero.</p>
+        
+        <div class="decoracion-equis">✖</div>
+        <div class="decoracion-circulo" style="border-color: #00ffff; box-shadow: 0 0 15px #00ffff;"></div>
+    </div>
+</div>
+
+<div id="mtv00s-page">
+    <button class="home-btn-00s" style="position: absolute !important; top: 20px !important; right: 30px !important; width: auto !important; height: auto !important; display: inline-block !important; padding: 8px 18px !important; border: 2px solid #ffb6d9 !important; border-radius: 20px !important; background: black !important; color: #ffb6d9 !important; font-weight: bold !important; cursor: pointer !important; box-shadow: 0 0 10px #ffb6d9, 0 0 20px #ffb6d9 !important; z-index: 100 !important;">HOME</button>
+    <div id="streaming-details-00s">
+        <div style="margin-bottom:12px; margin-top: 40px;">
+            <img src="logo_mtv00s.svg" style="width:230px; filter:drop-shadow(0 0 10px rgba(255,182,217,0.4));">
+        </div>
+        <h1 style="font-size:38px; font-weight:bold; margin:0 0 6px 0; color:#fff; letter-spacing:1px;">MTV 00s</h1>
+        <p style="font-size:16px; color:#aaa; margin:0 0 6px 0; font-weight:500;">✓ Bienvenid@ a la era Y2K.</p>
+        <p style="font-size:16px; color:#aaa; margin:0 0 16px 0; font-weight:500;">✓ El renacimiento del Pop y el auge del nuevo milenio.</p>
+        <div style="display:flex; gap:15px; margin-bottom:14px; font-size:14px; font-weight:bold; color:#888;">
+            <span>2000 - 2009</span>
+        </div>
+        <div style="display:flex; align-items:center; margin-bottom:30px;">
+            <button id="startChannel00s" style="background:#ffb6d9; color:#000; border:none; padding:12px 35px; font-size:16px; font-weight:bold; border-radius:30px; cursor:pointer; display:flex; align-items:center; gap:8px; box-shadow:0 0 15px rgba(255,182,217,0.4); transition:transform 0.2s;">
+                <span>▶</span> VER AHORA
+            </button>
+        </div>
+        <div style="text-transform:uppercase; font-size:11px; font-weight:bold; color:#ffb6d9; letter-spacing:1px; margin-bottom:6px;">Descripción</div>
+        <p style="max-width:520px; font-size:15px; color:#b3b3b3; margin:0; line-height:1.6; font-weight:400; text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">Sintoniza el estallido cultural de inicios de milenio. La era dorada del Pop adolescente de discográficas, las reinas de las coreografías icónicas, el dominio planetario del R&B e Hip-Hop urbano, y el regreso triunfal del Indie Rock y el Nu-Metal en un formato de transmisión puramente digital futurista.</p>
+        
+        <div class="decoracion-burbuja"></div>
+        <div class="decoracion-destello">✦</div>
+    </div>
+</div>
+
 <script>
 const boton80s = document.querySelector(".mtv80s");
 
@@ -568,6 +691,32 @@ document.querySelector(".home-btn").onclick = function(){
     
     const videoElement = document.getElementById("videoPlayer");
     if (videoElement) { videoElement.pause(); }
+};
+
+    const boton90s = document.querySelector(".mtv90s");
+boton90s.onclick = function(e){
+    e.preventDefault();
+    document.getElementById("home").style.display = "none";
+    document.getElementById("mtv90s-page").style.display = "block";
+    document.getElementById("streaming-details-90s").style.display = "flex";
+};
+
+document.querySelector(".home-btn-90s").onclick = function(){
+    document.getElementById("home").style.display = "block";
+    document.getElementById("mtv90s-page").style.display = "none";
+};
+
+const boton00s = document.querySelector(".mtv00s");
+boton00s.onclick = function(e){
+    e.preventDefault();
+    document.getElementById("home").style.display = "none";
+    document.getElementById("mtv00s-page").style.display = "block";
+    document.getElementById("streaming-details-00s").style.display = "flex";
+};
+
+document.querySelector(".home-btn-00s").onclick = function(){
+    document.getElementById("home").style.display = "block";
+    document.getElementById("mtv00s-page").style.display = "none";
 };
 
 window.onpopstate = function(event) {
