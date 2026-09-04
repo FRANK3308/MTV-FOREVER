@@ -50,8 +50,10 @@ function playCurrentVideo() {
 }
 
 function showControls() {
+     if (controlsLayer) {
     controlsLayer.style.opacity = "1";
     controlsLayer.style.pointerEvents = "auto";
+     }
     clearTimeout(controlsTimeout);
     if (!isLocked) {
         controlsTimeout = setTimeout(hideControls, 3000);
@@ -59,7 +61,7 @@ function showControls() {
 }
 
 function hideControls() {
-    if (!isLocked) {
+    if (!isLocked && controlsLayer) {
         controlsLayer.style.opacity = "0";
         controlsLayer.style.pointerEvents = "none";
     }
