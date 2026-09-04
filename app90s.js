@@ -13,10 +13,10 @@ const diccionarioCreditos = {
 
 let currentVideo = Math.floor(Math.random() * playlist.length);
 
-const controlsLayer = document.getElementById("custom-controls");
-const btnBack = document.getElementById("ctrl-back");
-const btnLock = document.getElementById("ctrl-lock");
-const btnFullscreen = document.getElementById("ctrl-fullscreen");
+const controlsLayer = document.getElementById("custom-controls90");
+const btnBack = document.getElementById("ctrl-back90");
+const btnLock = document.getElementById("ctrl-lock90");
+const btnFullscreen = document.getElementById("ctrl-fullscreen90");
 
 let controlsTimeout;
 let isLocked = false;
@@ -27,18 +27,18 @@ function playCurrentVideo() {
     
     const info = diccionarioCreditos[videoUrlActual];
     if (info) {
-        document.getElementById("cred-artista").innerText = atob(info.a);
-        document.getElementById("cred-cancion").innerText = atob(info.c);
-        document.getElementById("cred-album").innerText = atob(info.b);
-        document.getElementById("cred-anio").innerText = atob(info.y);
+        document.getElementById("cred-artista90").innerText = atob(info.a);
+        document.getElementById("cred-cancion90").innerText = atob(info.c);
+        document.getElementById("cred-album90").innerText = atob(info.b);
+        document.getElementById("cred-anio90").innerText = atob(info.y);
     }
     
-    const programaTexto = document.querySelector(".programa-texto");
+    const programaTexto = document.querySelector(".programa-texto90");
     if (programaTexto) {
         programaTexto.innerText = "Goodbye From MTV 90s";
     }
 
-      const logoImg = document.getElementById("logo-img");
+      const logoImg = document.getElementById("logo-img90");
     if (logoImg) {
         logoImg.src = "MTV_90s_2022.png";
     }
@@ -70,6 +70,7 @@ if (container) {
     container.addEventListener("touchstart", showControls);
 }
 
+if (btnBack) {
 btnBack.onclick = async function(e) {
     e.stopPropagation();
     if (isLocked) return;
@@ -91,8 +92,15 @@ btnBack.onclick = async function(e) {
         details90s.style.display = "flex";
     }
     document.getElementById("home").style.display = "none";
-};
 
+    const botonHome90s = document.querySelector(".home-btn-90s");
+        if (botonHome90s) {
+            botonHome90s.style.display = "inline-block";
+        }
+};
+}
+
+if (btnFullscreen) {
 btnFullscreen.onclick = function(e) {
     e.stopPropagation();
     if (isLocked) return;
@@ -102,7 +110,9 @@ btnFullscreen.onclick = function(e) {
         document.exitFullscreen();
     }
 };
+}
 
+if (btnLock) {
 btnLock.onclick = function(e) {
     e.stopPropagation();
     isLocked = !isLocked;
@@ -121,13 +131,20 @@ btnLock.onclick = function(e) {
         showControls();
     }
 };
+}
 
+if (button) {
 button.addEventListener("click", async () => {
     const page90s = document.getElementById("mtv90s-page");
     if (page90s) {
         page90s.style.display = "none";
     }
     document.getElementById("home").style.display = "none";
+
+    const botonHome90s = document.querySelector(".home-btn-90s");
+        if (botonHome90s) {
+            botonHome90s.style.display = "none";
+        }
     
     if (container) {
         container.style.display = "block";
@@ -137,9 +154,13 @@ button.addEventListener("click", async () => {
             });
         }
     }
+
+    history.pushState({page: "home-falso"}, null, "");
+    history.pushState({page: "cartelera"}, null, "");
     
     currentVideo = Math.floor(Math.random() * playlist.length);
     playCurrentVideo();
     showControls();
 });
-
+}
+    
