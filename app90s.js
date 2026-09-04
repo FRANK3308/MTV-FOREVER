@@ -1,4 +1,4 @@
-const video = document.getElementById("videoPlayer");
+const video = document.getElementById("videoPlayer90");
 const button = document.getElementById("startChannel90s");
 const container = document.querySelector(".player90s");
 
@@ -142,4 +142,4 @@ button.addEventListener("click", async () => {
     playCurrentVideo();
     showControls();
 });
-})();
+
