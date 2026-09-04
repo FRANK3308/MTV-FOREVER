@@ -1,7 +1,6 @@
-(() => {
 const video = document.getElementById("videoPlayer");
 const button = document.getElementById("startChannel90s");
-const container = document.querySelector(".player80s");
+const container = document.querySelector(".player90s");
 
 const playlist = [
     "https://archive.org",
