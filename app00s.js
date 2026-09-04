@@ -1,7 +1,6 @@
-(() => {
-const video = document.getElementById("videoPlayer");
+const video = document.getElementById("videoPlayer00");
 const button = document.getElementById("startChannel00s");
-const container = document.querySelector(".player80s");
+const container = document.querySelector(".players00s");
 
 const playlist = [
     "https://archive.org",
@@ -137,9 +136,10 @@ button.addEventListener("click", async () => {
             });
         }
     }
+
     
     currentVideo = Math.floor(Math.random() * playlist.length);
     playCurrentVideo();
     showControls();
 });
-})();
+
