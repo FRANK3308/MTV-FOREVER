@@ -1,13 +1,17 @@
 const video = document.getElementById("videoPlayer00");
 const button = document.getElementById("startChannel00s");
-const container = document.querySelector(".players00s");
+const container = document.querySelector(".player00s");
 
 const playlist = [
     "https://archive.org",
+    "https://archive.org",
+    "https://archive.org"
 ];
 
 const diccionarioCreditos = {
-    "https://archive.org": { 
+    "https://archive.org": { a: "TWljaGFlbCBKYWNrc29u", c: "IkJhZCI=", b: "QmFk", y: "MTk4Nw==" },
+    "https://archive.org": { a: "VTI=", c: "IlByaWRlIChJbiBUaGUgTmFtZSBPZiBMb3ZlKSI=", b: "VGhlIFVubm90aWNlYWJsZSBGaXJl", y: "MTk4NA==" },
+    "https://archive.org": { a: "UHJpbmNlIGFuZCB0aGUgUmV2b2x1dGlvbg==", c: "IlB1cnBsZSBSYWluIg==", b: "UHVycGxlIFJhaW4=", y: "MTk4NA==" }
 };
 
 let currentVideo = Math.floor(Math.random() * playlist.length);
@@ -26,22 +30,12 @@ function playCurrentVideo() {
     
     const info = diccionarioCreditos[videoUrlActual];
     if (info) {
-       document.getElementById("cred-artista00").innerText = atob(info.a);
-       document.getElementById("cred-cancion00").innerText = atob(info.c);
-       document.getElementById("cred-album00").innerText = atob(info.b);
-       document.getElementById("cred-anio00").innerText = atob(info.y);
+        document.getElementById("cred-artista00").innerText = atob(info.a);
+        document.getElementById("cred-cancion00").innerText = atob(info.c);
+        document.getElementById("cred-album00").innerText = atob(info.b);
+        document.getElementById("cred-anio00").innerText = atob(info.y);
     }
     
-    const programaTexto = document.querySelector(".programa-texto00");
-    if (programaTexto) {
-        programaTexto.innerText = "Goodbye From MTV 00s";
-    }
-
-      const logoImg = document.getElementById("logo-img00");
-    if (logoImg) {
-        logoImg.src = "MTV_00s_logo.png";
-    }
-
     video.load();
     video.play().catch(error => {
         console.log("Error de reproducción:", error);
@@ -49,10 +43,10 @@ function playCurrentVideo() {
 }
 
 function showControls() {
-     if (controlsLayer) {
-    controlsLayer.style.opacity = "1";
-    controlsLayer.style.pointerEvents = "auto";
-     }
+    if (controlsLayer) {
+        controlsLayer.style.opacity = "1";
+        controlsLayer.style.pointerEvents = "auto";
+    }
     clearTimeout(controlsTimeout);
     if (!isLocked) {
         controlsTimeout = setTimeout(hideControls, 3000);
@@ -60,7 +54,7 @@ function showControls() {
 }
 
 function hideControls() {
-   if (!isLocked && controlsLayer) {
+    if (!isLocked && controlsLayer) {
         controlsLayer.style.opacity = "0";
         controlsLayer.style.pointerEvents = "none";
     }
@@ -71,7 +65,6 @@ if (container) {
     container.addEventListener("touchstart", showControls);
 }
 
-if (btnBack) {
 btnBack.onclick = async function(e) {
     e.stopPropagation();
     if (isLocked) return;
@@ -85,22 +78,15 @@ btnBack.onclick = async function(e) {
     if (container) {
         container.style.display = "none";
     }
-    
-    const page00s = document.getElementById("mtv00s-page");
-    const details00s = document.getElementById("streaming-details-00s");
-    if (page00s && details00s) {
-        page00s.style.display = "block";
-        details00s.style.display = "flex";
-    }
+    document.getElementById("streaming-details-00s").style.display = "flex";
     document.getElementById("home").style.display = "none";
-
-    const botonHome00s = document.querySelector(".home-btn-00s");
-    if (botonHome00s) {
-        botonHome00s.style.display = "inline-block";
-        }
+    
+    const botonHomeFisico00 = document.querySelector(".home-btn-00s");
+    if (botonHomeFisico00) {
+        botonHomeFisico00.style.display = "inline-block";
+    }
 };
-}
-if (btnFullscreen) {
+
 btnFullscreen.onclick = function(e) {
     e.stopPropagation();
     if (isLocked) return;
@@ -110,9 +96,7 @@ btnFullscreen.onclick = function(e) {
         document.exitFullscreen();
     }
 };
-}
 
-if (btnLock) {
 btnLock.onclick = function(e) {
     e.stopPropagation();
     isLocked = !isLocked;
@@ -131,21 +115,15 @@ btnLock.onclick = function(e) {
         showControls();
     }
 };
-}
 
-if (button) {
 button.addEventListener("click", async () => {
-    const page00s = document.getElementById("mtv00s-page");
-    if (page00s) {
-        page00s.style.display = "none";
-    }
+    document.getElementById("streaming-details-00s").style.display = "none";
     document.getElementById("home").style.display = "none";
-
-     const botonHome00s = document.querySelector(".home-btn-00s");
-     if (botonHome00s) {
-            botonHome00s.style.display = "none";
-     }
     
+    const botonHomeFisico00 = document.querySelector(".home-btn-00s");
+    if (botonHomeFisico00) {
+        botonHomeFisico00.style.display = "none";
+    }
     if (container) {
         container.style.display = "block";
         if (!document.fullscreenElement) {
@@ -154,13 +132,58 @@ button.addEventListener("click", async () => {
             });
         }
     }
-
+    
     history.pushState({page: "home-falso"}, null, "");
     history.pushState({page: "cartelera"}, null, "");
     
-    currentVideo = Math.floor(Math.random() * playlist.length);
     playCurrentVideo();
     showControls();
 });
+
+video.addEventListener("ended", () => {
+    currentVideo = Math.floor(Math.random() * playlist.length);
+    playCurrentVideo();
+});
+
+showControls();
+
+if (video) {
+    video.addEventListener("play", () => {
+        const logoBox = document.getElementById("channel-logo00");
+        if (logoBox) {
+            logoBox.style.display = "flex";
+            setTimeout(() => { logoBox.style.opacity = "1"; }, 10);
+        }
+    });
+    video.addEventListener("pause", () => {
+        const logoBox = document.getElementById("channel-logo00");
+        if (logoBox) {
+            logoBox.style.opacity = "0";
+            setTimeout(() => { 
+                if (logoBox.style.opacity === "0") { logoBox.style.display = "none"; }
+            }, 500);
+        }
+    });
+    video.addEventListener("timeupdate", () => {
+        const currentTime = video.currentTime;
+        const duration = video.duration;
+        const creditosBox = document.getElementById("creditos-box00");
+        
+        if (!creditosBox || !duration) return;
+        const tiempoFinalInicio = duration - 32;
+        const mostrarAlInicio = (currentTime >= 12 && currentTime <= 27);
+        const mostrarAlFinal = (currentTime >= tiempoFinalInicio && currentTime <= (tiempoFinalInicio + 15));
+        if (mostrarAlInicio || mostrarAlFinal) {
+            creditosBox.style.display = "block";
+            setTimeout(() => { creditosBox.style.opacity = "1"; }, 10);
+        } else {
+            creditosBox.style.opacity = "0";
+            setTimeout(() => { 
+                if (creditosBox.style.opacity === "0") {
+                    creditosBox.style.display = "none"; 
+                }
+            }, 500);
+        }
+    });
 }
-    
+
