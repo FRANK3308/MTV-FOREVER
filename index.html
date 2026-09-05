@@ -769,19 +769,6 @@ document.querySelector(".home-btn-00s").onclick = function(){
     document.getElementById("home").style.display = "block";
     document.getElementById("mtv00s-page").style.display = "none";
 };
-
-document.getElementById("startChannel90s").onclick = function() {
-    const repro90 = document.querySelector(".player90s");
-    if (repro90) { repro90.style.display = "block"; }
-    document.getElementById("streaming-details-90s").style.display = "none";
-};
-
-document.getElementById("startChannel00s").onclick = function() {
-    const repro00 = document.querySelector(".player00s");
-    if (repro00) { repro00.style.display = "block"; }
-    document.getElementById("streaming-details-00s").style.display = "none";
-};
-
     
 window.onpopstate = function(event) {
     const reproductorCaja = document.querySelector(".player80s");
