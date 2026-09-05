@@ -1,6 +1,6 @@
-const video = document.getElementById("videoPlayer00");
-const button = document.getElementById("startChannel00s");
-const container = document.querySelector(".player00s");
+const video00 = document.getElementById("videoPlayer00");
+const button00 = document.getElementById("startChannel00s");
+const container00 = document.querySelector(".player00s");
 
 const playlist00 = [
     "https://archive.org",
@@ -14,21 +14,21 @@ const diccionarioCreditos00 = {
     "https://archive.org": { a: "UHJpbmNlIGFuZCB0aGUgUmV2b2x1dGlvbg==", c: "IlB1cnBsZSBSYWluIg==", b: "UHVycGxlIFJhaW4=", y: "MTk4NA==" }
 };
 
-let currentVideo00 = Math.floor(Math.random() * playlist.length);
+let currentVideo00 = Math.floor(Math.random() * playlist00.length);
 
-const controlsLayer = document.getElementById("custom-controls00");
-const btnBack = document.getElementById("ctrl-back00");
-const btnLock = document.getElementById("ctrl-lock00");
-const btnFullscreen = document.getElementById("ctrl-fullscreen00");
+const controlsLayer00 = document.getElementById("custom-controls00");
+const btnBack00 = document.getElementById("ctrl-back00");
+const btnLock00 = document.getElementById("ctrl-lock00");
+const btnFullscreen00 = document.getElementById("ctrl-fullscreen00");
 
-let controlsTimeout;
-let isLocked = false;
+let controlsTimeout00;
+let isLocked00 = false;
 
-function playCurrentVideo() {
-    const videoUrlActual = playlist[currentVideo];
-    video.src = videoUrlActual;
+function playCurrentVideo00() {
+    const videoUrlActual = playlist00[currentVideo00];
+    video00.src = videoUrlActual;
     
-    const info = diccionarioCreditos[videoUrlActual];
+    const info = diccionarioCreditos00[videoUrlActual];
     if (info) {
         document.getElementById("cred-artista00").innerText = atob(info.a);
         document.getElementById("cred-cancion00").innerText = atob(info.c);
@@ -36,151 +36,159 @@ function playCurrentVideo() {
         document.getElementById("cred-anio00").innerText = atob(info.y);
     }
     
-    video.load();
-    video.play().catch(error => {
+    video00.load();
+    video00.play().catch(error => {
         console.log("Error de reproducción:", error);
     });
 }
 
-function showControls() {
-    if (controlsLayer) {
-        controlsLayer.style.opacity = "1";
-        controlsLayer.style.pointerEvents = "auto";
+function showControls00() {
+    if (controlsLayer00) {
+        controlsLayer00.style.opacity = "1";
+        controlsLayer00.style.pointerEvents = "auto";
     }
-    clearTimeout(controlsTimeout);
-    if (!isLocked) {
-        controlsTimeout = setTimeout(hideControls, 3000);
-    }
-}
-
-function hideControls() {
-    if (!isLocked && controlsLayer) {
-        controlsLayer.style.opacity = "0";
-        controlsLayer.style.pointerEvents = "none";
+    clearTimeout(controlsTimeout00);
+    if (!isLocked00) {
+        controlsTimeout00 = setTimeout(hideControls00, 3000);
     }
 }
 
-if (container) {
-    container.addEventListener("mousemove", showControls);
-    container.addEventListener("touchstart", showControls);
+function hideControls00() {
+    if (!isLocked00 && controlsLayer00) {
+        controlsLayer00.style.opacity = "0";
+        controlsLayer00.style.pointerEvents = "none";
+    }
 }
 
-btnBack.onclick = async function(e) {
-    e.stopPropagation();
-    if (isLocked) return;
-    
-    video.pause();
-    
-    if (document.fullscreenElement) {
-        await document.exitFullscreen().catch(err => console.log(err));
-    }
-    
-    if (container) {
-        container.style.display = "none";
-    }
-    document.getElementById("streaming-details-00s").style.display = "flex";
-    document.getElementById("home").style.display = "none";
-    
-    const botonHomeFisico00 = document.querySelector(".home-btn-00s");
-    if (botonHomeFisico00) {
-        botonHomeFisico00.style.display = "inline-block";
-    }
-};
+if (container00) {
+    container00.addEventListener("mousemove", showControls00);
+    container00.addEventListener("touchstart", showControls00);
+}
 
-btnFullscreen.onclick = function(e) {
-    e.stopPropagation();
-    if (isLocked) return;
-    if (!document.fullscreenElement && container) {
-        container.requestFullscreen().catch(err => console.log(err));
-    } else {
-        document.exitFullscreen();
-    }
-};
-
-btnLock.onclick = function(e) {
-    e.stopPropagation();
-    isLocked = !isLocked;
-    if (isLocked) {
-        btnLock.innerText = "🔒";
-        btnLock.style.color = "white";
-        btnLock.style.borderColor = "white";
-        btnBack.style.visibility = "hidden";
-        btnFullscreen.style.visibility = "hidden";
-    } else {
-        btnLock.innerText = "🔓";
-        btnLock.style.color = "white";
-        btnLock.style.borderColor = "white";
-        btnBack.style.visibility = "visible";
-        btnFullscreen.style.visibility = "visible";
-        showControls();
-    }
-};
-
-button.addEventListener("click", async () => {
-    document.getElementById("streaming-details-00s").style.display = "none";
-    document.getElementById("home").style.display = "none";
-    
-    const botonHomeFisico00 = document.querySelector(".home-btn-00s");
-    if (botonHomeFisico00) {
-        botonHomeFisico00.style.display = "none";
-    }
-    if (container) {
-        container.style.display = "block";
-        if (!document.fullscreenElement) {
-            await container.requestFullscreen().catch(err => {
-                console.log("Error al activar pantalla completa:", err);
-            });
+if (btnBack00) {
+    btnBack00.onclick = async function(e) {
+        e.stopPropagation();
+        if (isLocked00) return;
+        
+        video00.pause();
+        
+        if (document.fullscreenElement) {
+            await document.exitFullscreen().catch(err => console.log(err));
         }
-    }
-    
-    history.pushState({page: "home-falso"}, null, "");
-    history.pushState({page: "cartelera"}, null, "");
-    
-    playCurrentVideo();
-    showControls();
-});
+        
+        if (container00) {
+            container00.style.display = "none";
+        }
+        document.getElementById("streaming-details-00s").style.display = "flex";
+        document.getElementById("home").style.display = "none";
+        
+        const botonHomeFisico00 = document.querySelector(".home-btn-00s");
+        if (botonHomeFisico00) {
+            botonHomeFisico00.style.display = "inline-block";
+        }
+    };
+}
 
-video.addEventListener("ended", () => {
-    currentVideo = Math.floor(Math.random() * playlist.length);
-    playCurrentVideo();
-});
+if (btnFullscreen00) {
+    btnFullscreen00.onclick = function(e) {
+        e.stopPropagation();
+        if (isLocked00) return;
+        if (!document.fullscreenElement && container00) {
+            container00.requestFullscreen().catch(err => console.log(err));
+        } else {
+            document.exitFullscreen();
+        }
+    };
+}
 
-showControls();
+if (btnLock00) {
+    btnLock00.onclick = function(e) {
+        e.stopPropagation();
+        isLocked00 = !isLocked00;
+        if (isLocked00) {
+            btnLock00.innerText = "🔒";
+            btnLock00.style.color = "white";
+            btnLock00.style.borderColor = "white";
+            if (btnBack00) btnBack00.style.visibility = "hidden";
+            if (btnFullscreen00) btnFullscreen00.style.visibility = "hidden";
+        } else {
+            btnLock00.innerText = "🔓";
+            btnLock00.style.color = "white";
+            btnLock00.style.borderColor = "white";
+            if (btnBack00) btnBack00.style.visibility = "visible";
+            if (btnFullscreen00) btnFullscreen00.style.visibility = "visible";
+            showControls00();
+        }
+    };
+}
 
-if (video) {
-    video.addEventListener("play", () => {
-        const logoBox = document.getElementById("channel-logo00");
-        if (logoBox) {
-            logoBox.style.display = "flex";
-            setTimeout(() => { logoBox.style.opacity = "1"; }, 10);
+if (button00) {
+    button00.addEventListener("click", async () => {
+        document.getElementById("streaming-details-00s").style.display = "none";
+        document.getElementById("home").style.display = "none";
+        
+        const botonHomeFisico00 = document.querySelector(".home-btn-00s");
+        if (botonHomeFisico00) {
+            botonHomeFisico00.style.display = "none";
+        }
+        if (container00) {
+            container00.style.display = "block";
+            if (!document.fullscreenElement) {
+                await container00.requestFullscreen().catch(err => {
+                    console.log("Error al activar pantalla completa:", err);
+                });
+            }
+        }
+        
+        history.pushState({page: "home-falso"}, null, "");
+        history.pushState({page: "cartelera"}, null, "");
+        
+        playCurrentVideo00();
+        showControls00();
+    });
+}
+
+if (video00) {
+    video00.addEventListener("ended", () => {
+        currentVideo00 = Math.floor(Math.random() * playlist00.length);
+        playCurrentVideo00();
+    });
+
+    video00.addEventListener("play", () => {
+        const logoBox00 = document.getElementById("channel-logo00");
+        if (logoBox00) {
+            logoBox00.style.display = "flex";
+            setTimeout(() => { logoBox00.style.opacity = "1"; }, 10);
         }
     });
-    video.addEventListener("pause", () => {
-        const logoBox = document.getElementById("channel-logo00");
-        if (logoBox) {
-            logoBox.style.opacity = "0";
+
+    video00.addEventListener("pause", () => {
+        const logoBox00 = document.getElementById("channel-logo00");
+        if (logoBox00) {
+            logoBox00.style.opacity = "0";
             setTimeout(() => { 
-                if (logoBox.style.opacity === "0") { logoBox.style.display = "none"; }
+                if (logoBox00.style.opacity === "0") { logoBox00.style.display = "none"; }
             }, 500);
         }
     });
-    video.addEventListener("timeupdate", () => {
-        const currentTime = video.currentTime;
-        const duration = video.duration;
-        const creditosBox = document.getElementById("creditos-box00");
+
+    video00.addEventListener("timeupdate", () => {
+        const currentTime = video00.currentTime;
+        const duration = video00.duration;
+        const creditosBox00 = document.getElementById("creditos-box00");
         
-        if (!creditosBox || !duration) return;
+        if (!creditosBox00 || !duration) return;
         const tiempoFinalInicio = duration - 32;
         const mostrarAlInicio = (currentTime >= 12 && currentTime <= 27);
         const mostrarAlFinal = (currentTime >= tiempoFinalInicio && currentTime <= (tiempoFinalInicio + 15));
         if (mostrarAlInicio || mostrarAlFinal) {
-            creditosBox.style.display = "block";
-            setTimeout(() => { creditosBox.style.opacity = "1"; }, 10);
+            creditosBox00.style.display = "block";
+            setTimeout(() => { creditosBox00.style.opacity = "1"; }, 10);
         } else {
-            creditosBox.style.opacity = "0";
+            creditosBox00.style.opacity = "0";
             setTimeout(() => { 
-                if (creditosBox.style.opacity === "0") {
-                    creditosBox.style.display = "none"; 
+                if (creditosBox00.style.opacity === "0") {
+                    creditosBox00.style.display = "none"; 
                 }
             }, 500);
         }
