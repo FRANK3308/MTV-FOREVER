@@ -2,19 +2,19 @@ const video = document.getElementById("videoPlayer00");
 const button = document.getElementById("startChannel00s");
 const container = document.querySelector(".player00s");
 
-const playlist = [
+const playlist00 = [
     "https://archive.org",
     "https://archive.org",
     "https://archive.org"
 ];
 
-const diccionarioCreditos = {
+const diccionarioCreditos00 = {
     "https://archive.org": { a: "TWljaGFlbCBKYWNrc29u", c: "IkJhZCI=", b: "QmFk", y: "MTk4Nw==" },
     "https://archive.org": { a: "VTI=", c: "IlByaWRlIChJbiBUaGUgTmFtZSBPZiBMb3ZlKSI=", b: "VGhlIFVubm90aWNlYWJsZSBGaXJl", y: "MTk4NA==" },
     "https://archive.org": { a: "UHJpbmNlIGFuZCB0aGUgUmV2b2x1dGlvbg==", c: "IlB1cnBsZSBSYWluIg==", b: "UHVycGxlIFJhaW4=", y: "MTk4NA==" }
 };
 
-let currentVideo = Math.floor(Math.random() * playlist.length);
+let currentVideo00 = Math.floor(Math.random() * playlist.length);
 
 const controlsLayer = document.getElementById("custom-controls00");
 const btnBack = document.getElementById("ctrl-back00");
