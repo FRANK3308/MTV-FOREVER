@@ -780,7 +780,7 @@ THE MUSIC NEVER STOPS
         <div class="decoracion-triangulo" style="right: 140px; bottom: 45px; transform: rotate(-15deg); filter: drop-shadow(0 0 18px #ff1493);"></div>
     </div>
 
-        <div class="player90s" style="display:none; position:absolute; inset:0; width:100%; height:100%; z-index:20; background:#000;">
+    <div class="player90s" style="display:none; position:absolute; inset:0; width:100%; height:100%; z-index:20; background:#000;">
         <video id="videoPlayer90" playsinline></video>
         
         <div id="channel-logo90" style="position:absolute; top:55px; left:65px; z-index:10; pointer-events:none; display:none; width:600px; height:140px;">
@@ -788,18 +788,19 @@ THE MUSIC NEVER STOPS
             <span class="programa-texto90" style="position:absolute; top:-2px; left:170px; color:#ffffff; font-family:'Arial Black',sans-serif; font-size:24px; font-weight:900; text-shadow:2px 2px 4px rgba(0,0,0,0.9); white-space:nowrap;">Goodbye From MTV 90s</span>
         </div>
 
-          <div id="creditos-box90" class="creditos-video">
-              
-            <div class="creditos-artista" id="cred-artista90"></div>
-            <div class="creditos-cancion" id="cred-cancion90"></div>
-            <div class="creditos-album" id="cred-album90"></div>
-            <div class="creditos-anio" id="cred-anio90"></div>
-        </div>
-
-            <div class="logo-lateral-90s">
-                <img class="logo-credito-90s" src="mtv-music-television-seeklogo.png" alt="MTV 90s">
+        <div id="creditos-box90" class="creditos-90s-container">
+            <div class="artista-arriba-90s" id="cred-artista90"></div>
+            <div class="barra-morada-90s">
+                <div class="datos-bloque-90s">
+                    <div id="cred-cancion90" style="margin-bottom: 4px;"></div>
+                    <div style="font-size: 21px;">
+                        <span id="cred-album90"></span>, <span id="cred-anio90"></span>
+                    </div>
+                </div>
+                <div class="logo-lateral-90s">
+                    <img class="logo-credito-90s" src="mtv-music-television-seeklogo.png" alt="MTV 90s">
+                </div>
             </div>
-
         </div>
 
         <div id="custom-controls90" style="position:absolute; inset:0; z-index:25; transition:opacity 0.4s ease; opacity:1;">
@@ -808,7 +809,6 @@ THE MUSIC NEVER STOPS
             <button id="ctrl-fullscreen90" style="position:absolute; bottom:25px; right:40px; background:none; border:none; color:#ffffff; font-size:28px; font-weight:900; cursor:pointer; text-shadow:2px 2px 4px rgba(0,0,0,0.9);">⛶</button>
         </div>
     </div>
-
 </div>
 
 <div id="mtv00s-page">
@@ -925,6 +925,14 @@ document.getElementById("startChannel90s").onclick = function() {
     if (creditosBox90) { 
         creditosBox90.classList.add("active"); 
     }
+};
+
+document.getElementById("startChannel00s").onclick = function() {
+    const repro00 = document.querySelector(".player00s");
+    if (repro00) { 
+        repro00.style.display = "block"; 
+    }
+    document.getElementById("streaming-details-00s").style.display = "none";
 };
     
 window.onpopstate = function(event) {
