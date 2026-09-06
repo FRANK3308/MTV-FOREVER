@@ -775,14 +775,36 @@ window.onpopstate = function(event) {
     const videoElement = document.getElementById("videoPlayer");
     const botonHomeFisico = document.querySelector(".home-btn");
 
+    const repro90 = document.querySelector(".player90s");
+    const repro00 = document.querySelector(".player00s");
+
     if (reproductorCaja && reproductorCaja.style.display === "block") {
         if (videoElement) { videoElement.pause(); }
         reproductorCaja.style.display = "none";
         document.getElementById("streaming-details-80s").style.display = "flex";
         if (botonHomeFisico) { botonHomeFisico.style.display = "inline-block"; }
-    } else {
+    } 
+    else if (repro90 && repro90.style.display === "block") {
+        const video90 = document.getElementById("videoPlayer90");
+        if (video90) { video90.pause(); }
+        repro90.style.display = "none";
+        document.getElementById("streaming-details-90s").style.display = "flex";
+        const btnHome90 = document.querySelector(".home-btn-90s");
+        if (btnHome90) { btnHome90.style.display = "inline-block"; }
+    } 
+    else if (repro00 && repro00.style.display === "block") {
+        const video00 = document.getElementById("videoPlayer00");
+        if (video00) { video00.pause(); }
+        repro00.style.display = "none";
+        document.getElementById("streaming-details-00s").style.display = "flex";
+        const btnHome00 = document.querySelector(".home-btn-00s");
+        if (btnHome00) { btnHome00.style.display = "inline-block"; }
+    } 
+    else {
         document.getElementById("home").style.display = "block";
         document.getElementById("mtv80s-page").style.display = "none";
+        document.getElementById("mtv90s-page").style.display = "none";
+        document.getElementById("mtv00s-page").style.display = "none";
     }
 };
 </script>
