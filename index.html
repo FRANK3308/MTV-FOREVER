@@ -456,52 +456,67 @@ body{
 
 .creditos-90s-container {
     position: absolute;
-    bottom: 50px;
+    bottom: 60px;
     left: -100%;
     z-index: 30;
     display: flex;
-    align-items: flex-end;
-    gap: 15px;
+    align-items: center;
+    background: rgba(43, 31, 105, 0.82) !important;
+    border: 3px solid #000000;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    padding: 14px 28px;
+    min-width: 480px;
+    max-width: 600px;
     transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .creditos-90s-container.active {
-    left: 40px;
+    left: 55px;
 }
 
-.barra-morada-90s {https://github.com/FRANK3308/MTV-FOREVER/tree/main
-    background: linear-gradient(180s, rgba(58, 55, 142, 0.85) 0%, rgba(35, 33, 98, 0.9) 100%);
-    border-bottom: 4px solid #1a184a;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
-    padding: 15px 35px 15px 25px;
-    min-width: 450px;
+.barra-morada-90s {
+    flex-grow: 1;
     text-align: left;
 }
 
 .artista-arriba-90s {
     font-family: 'Arial Black', sans-serif;
-    font-size: 32px;
-    color: #ffff00;
+    font-size: 34px;
+    font-weight: 900;
+    color: #ffff00 !important;
     text-transform: uppercase;
-    margin-bottom: 8px;
-    text-shadow: 2px 2px 0px #000;
-    letter-spacing: 0.5px;
+    margin: 0 0 6px 0;
+    text-shadow: 3px 3px 0px #000000;
+    letter-spacing: -0.5px;
 }
 
 .datos-bloque-90s {
     font-family: 'Arial Black', sans-serif;
     font-size: 24px;
-    color: #ff66cc;
+    font-weight: 900;
+    color: #ff66cc !important;
     text-transform: uppercase;
-    text-shadow: 2px 2px 0px #000;
-    line-height: 1.3;
+    text-shadow: 2px 2px 0px #000000;
+    line-height: 1.2;
+}
+
+.datos-bloque-90s div {
+    margin-bottom: 2px;
+}
+
+.logo-lateral-90s {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    border-left: 2px solid rgba(0, 0, 0, 0.3);
+    margin-left: 15px;
 }
 
 .logo-credito-90s {
-    width: 110px;
+    width: 105px;
     height: auto;
-    filter: drop-shadow(3px 3px 5px rgba(0,0,0,0.6));
-    margin-bottom: 5px;
+    filter: drop-shadow(2px 2px 0px #000000);
 }
 
 .player90s, .player00s {
