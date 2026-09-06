@@ -520,65 +520,24 @@ body{
 }
 
 .logo-ia-90s {
-    position: relative;
-    width: 110px;
-    height: 90px;
-    margin-bottom: 2px;
-}
-
-.ia-m {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 90px;
-    height: 75px;
-    background: #ff8b72; 
-    clip-path: polygon(0% 100%, 0% 0%, 28% 0%, 50% 45%, 72% 0%, 100% 0%, 100% 100%, 75% 100%, 75% 35%, 50% 75%, 25% 35%, 25% 100%);
-    border: 3px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 15px;
     opacity: 0;
+    transform: translateY(-40px); /* Inicia arriba del cuadro */
 }
 
-.creditos-90s-container.active .ia-m {
-    animation: caerM 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 1.5s;
+.creditos-90s-container.active .logo-ia-90s {
+    animation: caerLogo90 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1.5s; /* Cae justo cuando el cuadro termina de estirarse */
 }
 
-.ia-tv {
-    position: absolute;
-    top: 15px;
-    left: 45px;
-    font-family: 'Impact', sans-serif;
-    font-size: 52px;
-    font-style: italic;
-    color: #00ffff;
-    text-shadow: 3px 3px 0px #000;
-    opacity: 0;
-    z-index: 5;
-}
-
-.creditos-90s-container.active .ia-tv {
-    animation: chispazoTv 0.1s forwards;
-    animation-delay: 2.1s;
-}
-
-.ia-subtexto {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    font-family: 'Arial Black', sans-serif;
-    font-size: 8px;
-    font-weight: 900;
-    color: #ffffff !important;
-    background: #000000;
-    padding: 2px 4px;
-    letter-spacing: 0.5px;
-    border: 2px solid #000;
-    opacity: 0;
-}
-
-.creditos-90s-container.active .ia-subtexto {
-    animation: aparecerTexto90 0.3s forwards;
-    animation-delay: 2.3s;
+.logo-credito-90s {
+    width: 105px;
+    height: auto;
+    /* Filtro melón/salmón retro con sombras negras e infinitamente translúcido */
+    filter: invert(62%) sepia(31%) saturate(1105%) hue-rotate(323deg) brightness(98%) contrast(90%) opacity(0.70) drop-shadow(2px 2px 0px #000000);
 }
 
 @keyframes estirarPersiana {
@@ -593,12 +552,9 @@ body{
     from { opacity: 0; }
     to { opacity: 1; }
 }
-@keyframes caerM {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 0.65; } /* Opacidad melón translúcido */
-}
-@keyframes chispazoTv {
-    to { opacity: 0.75; } /* Opacidad turquesa translúcido */
+@keyframes caerLogo90 {
+    from { transform: translateY(-40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 
@@ -839,10 +795,9 @@ THE MUSIC NEVER STOPS
                     </div>
                 </div>
             </div>
+
             <div class="logo-ia-90s">
-                <div class="ia-m"></div>
-                <div class="ia-tv">TV</div>
-                <div class="ia-subtexto">MUSIC TELEVISION</div>
+                <img class="logo-credito-90s" src="mtv-music-television-seeklogo.png" alt="MTV 90s">
             </div>
         </div>
         
