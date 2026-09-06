@@ -460,61 +460,54 @@ body{
     left: -100%;
     z-index: 30;
     display: flex;
-    align-items: center;
-    background: rgba(43, 31, 105, 0.82) !important;
-    border: 3px solid #000000;
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
-    padding: 14px 28px;
-    min-width: 480px;
-    max-width: 600px;
-    transition: left 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    flex-direction: column;
+    width: 520px;
+    transition: left 2.0s cubic-bezier(0.25, 1, 0.5, 1); /* Aquí le damos los 2 segundos exactos de demora */
 }
 
 .creditos-90s-container.active {
     left: 55px;
 }
 
-.barra-morada-90s {
-    flex-grow: 1;
-    text-align: left;
-}
-
 .artista-arriba-90s {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 34px;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 42px;
     font-weight: 900;
     color: #ffff00 !important;
     text-transform: uppercase;
-    margin: 0 0 6px 0;
+    margin: 0 0 6px 8px;
     text-shadow: 3px 3px 0px #000000;
-    letter-spacing: -0.5px;
+    letter-spacing: 1px;
+}
+
+.barra-morada-90s {
+    background: rgba(59, 44, 137, 0.60) !important; 
+    border: 3px solid #000000;
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .datos-bloque-90s {
     font-family: 'Arial Black', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 900;
     color: #ff66cc !important;
     text-transform: uppercase;
     text-shadow: 2px 2px 0px #000000;
-    line-height: 1.2;
-}
-
-.datos-bloque-90s div {
-    margin-bottom: 2px;
+    line-height: 1.3;
 }
 
 .logo-lateral-90s {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-left: 20px;
-    border-left: 2px solid rgba(0, 0, 0, 0.3);
-    margin-left: 15px;
 }
 
 .logo-credito-90s {
-    width: 105px;
+    width: 115px;
     height: auto;
     filter: drop-shadow(2px 2px 0px #000000);
 }
