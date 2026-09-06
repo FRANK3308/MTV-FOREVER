@@ -461,7 +461,7 @@ body{
     z-index: 30;
     display: flex;
     align-items: flex-end;
-    gap: 12px;
+    gap: 15px;
     pointer-events: none;
 }
 
@@ -472,15 +472,14 @@ body{
 }
 
 .artista-arriba-90s {
-    font-family: 'Impact', sans-serif !important;
-    font-size: 52px !important;
-    font-weight: 900;
+    font-family: 'Arial', 'Helvetica', sans-serif !important;
+    font-size: 34px !important;
+    font-weight: bold;
     color: #ffff00 !important;
     text-transform: uppercase;
-    margin: 0 0 4px 8px !important;
-    text-shadow: 3px 3px 0px #000000;
-    letter-spacing: -1px;
-    
+    margin: 0 0 6px 4px !important;
+    text-shadow: 2px 2px 0px #000000;
+    letter-spacing: 2px; /* Letras delgadas y separadas como tu imagen */
     opacity: 0;
 }
 
@@ -490,9 +489,9 @@ body{
 }
 
 .barra-morada-90s {
-    background: rgba(43, 31, 105, 0.60) !important;
+    background: rgba(54, 47, 126, 0.45) !important; /* Totalmente limpio y transparente */
     border: 3px solid #000000;
-    padding: 16px 28px;
+    padding: 14px 24px;
     min-width: 380px;
     box-sizing: border-box;
     
@@ -506,12 +505,12 @@ body{
 
 .datos-bloque-90s {
     font-family: 'Arial Black', sans-serif;
-    font-size: 23px;
+    font-size: 21px;
     font-weight: 900;
     color: #ff66cc !important;
     text-transform: uppercase;
     text-shadow: 2px 2px 0px #000000;
-    line-height: 1.4;
+    line-height: 1.3;
     opacity: 0;
 }
 
@@ -520,64 +519,64 @@ body{
     animation-delay: 1.6s;
 }
 
-.logo-externo-90s {
+.logo-ia-90s {
     position: relative;
     width: 110px;
-    height: 100px;
-    opacity: 0;
+    height: 90px;
+    margin-bottom: 2px;
 }
 
-.creditos-90s-container.active .logo-externo-90s {
-    animation: encenderContenedorLogo 0.1s forwards;
-    animation-delay: 1.5s;
-}
-
-.logo-m-90s {
+.ia-m {
     position: absolute;
-    top: -40px;
+    top: 0;
     left: 0;
-    width: 100%;
-    height: auto;
+    width: 90px;
+    height: 75px;
+    background: #ff8b72; 
+    clip-path: polygon(0% 100%, 0% 0%, 28% 0%, 50% 45%, 72% 0%, 100% 0%, 100% 100%, 75% 100%, 75% 35%, 50% 75%, 25% 35%, 25% 100%);
+    border: 3px solid #000;
     opacity: 0;
-    filter: invert(62%) sepia(31%) saturate(1105%) hue-rotate(323deg) brightness(98%) contrast(90%) opacity(0.65) drop-shadow(2px 2px 0px #000);
 }
 
-.creditos-90s-container.active .logo-m-90s {
+.creditos-90s-container.active .ia-m {
     animation: caerM 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     animation-delay: 1.5s;
 }
 
-.logo-tv-90s {
+.ia-tv {
     position: absolute;
-    top: -5px;
-    left: 30px;
-    width: 70px;
-    height: auto;
+    top: 15px;
+    left: 45px;
+    font-family: 'Impact', sans-serif;
+    font-size: 52px;
+    font-style: italic;
+    color: #00ffff;
+    text-shadow: 3px 3px 0px #000;
     opacity: 0;
-    filter: invert(72%) sepia(85%) saturate(1500%) hue-rotate(100deg) brightness(100%) contrast(100%) opacity(0.70) drop-shadow(2px 2px 0px #000);
+    z-index: 5;
 }
 
-.creditos-90s-container.active .logo-tv-90s {
+.creditos-90s-container.active .ia-tv {
     animation: chispazoTv 0.1s forwards;
     animation-delay: 2.1s;
 }
 
-.logo-subtexto-90s {
+.ia-subtexto {
     position: absolute;
-    bottom: -15px;
-    left: 5px;
+    bottom: -5px;
+    left: 0;
     font-family: 'Arial Black', sans-serif;
-    font-size: 9px;
+    font-size: 8px;
     font-weight: 900;
-    color: #ffffff !important; /* Siempre blanco sólido */
+    color: #ffffff !important;
     background: #000000;
-    padding: 1px 4px;
-    text-transform: uppercase;
+    padding: 2px 4px;
     letter-spacing: 0.5px;
+    border: 2px solid #000;
     opacity: 0;
 }
 
-.creditos-90s-container.active .logo-subtexto-90s {
+.creditos-90s-container.active .ia-subtexto {
     animation: aparecerTexto90 0.3s forwards;
     animation-delay: 2.3s;
 }
@@ -594,15 +593,12 @@ body{
     from { opacity: 0; }
     to { opacity: 1; }
 }
-@keyframes encenderContenedorLogo {
-    to { opacity: 1; }
-}
 @keyframes caerM {
-    from { transform: translateY(-60px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 0.65; } /* Opacidad melón translúcido */
 }
 @keyframes chispazoTv {
-    to { opacity: 1; }
+    to { opacity: 0.75; } /* Opacidad turquesa translúcido */
 }
 
 
@@ -831,7 +827,7 @@ THE MUSIC NEVER STOPS
             <span class="programa-texto90" style="position:absolute; top:-2px; left:170px; color:#ffffff; font-family:'Arial Black',sans-serif; font-size:24px; font-weight:900; text-shadow:2px 2px 4px rgba(0,0,0,0.9); white-space:nowrap;">Goodbye From MTV 90s</span>
         </div>
 
-        <div id="creditos-box90" class="creditos-90s-container">
+               <div id="creditos-box90" class="creditos-90s-container">
             
             <div class="bloque-izquierdo-90s">
                 <div class="artista-arriba-90s" id="cred-artista90"></div>
@@ -844,6 +840,14 @@ THE MUSIC NEVER STOPS
                     </div>
                 </div>
             </div>
+
+            <div class="logo-ia-90s">
+                <div class="ia-m"></div>
+                <div class="ia-tv">TV</div>
+                <div class="ia-subtexto">MUSIC TELEVISION</div>
+            </div>
+
+        </div>
 
             <div class="logo-externo-90s">
                 <img class="logo-m-90s" src="mtv-m-layer.png" alt="M">
