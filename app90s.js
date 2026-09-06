@@ -85,6 +85,11 @@ if (btnBack90) {
         document.getElementById("streaming-details-90s").style.display = "flex";
         document.getElementById("home").style.display = "none";
         
+        const creditosBox90 = document.getElementById("creditos-box90");
+        if (creditosBox90) {
+            creditosBox90.classList.remove("active");
+        }
+        
         const botonHomeFisico90 = document.querySelector(".home-btn-90s");
         if (botonHomeFisico90) {
             botonHomeFisico90.style.display = "inline-block";
@@ -157,25 +162,7 @@ if (video90) {
         playCurrentVideo90();
     });
 
-    video90.addEventListener("play", () => {
-        const logoBox90 = document.getElementById("channel-logo90");
-        if (logoBox90) {
-            logoBox90.style.display = "flex";
-            setTimeout(() => { logoBox90.style.opacity = "1"; }, 10);
-        }
-    });
-
-    video90.addEventListener("pause", () => {
-        const logoBox90 = document.getElementById("channel-logo90");
-        if (logoBox90) {
-            logoBox90.style.opacity = "0";
-            setTimeout(() => { 
-                if (logoBox90.style.opacity === "0") { logoBox90.style.display = "none"; }
-            }, 500);
-        }
-    });
-
-     video90.addEventListener("timeupdate", () => {
+    video90.addEventListener("timeupdate", () => {
         const currentTime = video90.currentTime;
         const duration = video90.duration;
         const creditosBox90 = document.getElementById("creditos-box90");
@@ -183,7 +170,6 @@ if (video90) {
         if (!creditosBox90 || !duration) return;
         
         const tiempoFinalInicio = duration - 32;
-        
         const mostrarAlInicio = (currentTime >= 0 && currentTime <= 15);
         const mostrarAlFinal = (currentTime >= tiempoFinalInicio && currentTime <= (tiempoFinalInicio + 15));
         
