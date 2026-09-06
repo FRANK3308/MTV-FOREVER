@@ -175,25 +175,21 @@ if (video90) {
         }
     });
 
-    video90.addEventListener("timeupdate", () => {
+        video90.addEventListener("timeupdate", () => {
         const currentTime = video90.currentTime;
         const duration = video90.duration;
         const creditosBox90 = document.getElementById("creditos-box90");
         
         if (!creditosBox90 || !duration) return;
+        
         const tiempoFinalInicio = duration - 32;
         const mostrarAlInicio = (currentTime >= 12 && currentTime <= 27);
         const mostrarAlFinal = (currentTime >= tiempoFinalInicio && currentTime <= (tiempoFinalInicio + 15));
+        
         if (mostrarAlInicio || mostrarAlFinal) {
-            creditosBox90.style.display = "block";
-            setTimeout(() => { creditosBox90.style.opacity = "1"; }, 10);
+            creditosBox90.classList.add("active");
         } else {
-            creditosBox90.style.opacity = "0";
-            setTimeout(() => { 
-                if (creditosBox90.style.opacity === "0") {
-                    creditosBox90.style.display = "none"; 
-                }
-            }, 500);
+            creditosBox90.classList.remove("active");
         }
     });
 }
