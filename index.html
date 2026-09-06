@@ -460,44 +460,44 @@ body{
     left: 55px;
     z-index: 30;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 530px;
+    align-items: flex-end;
+    gap: 12px;
     pointer-events: none;
 }
 
+.bloque-izquierdo-90s {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .artista-arriba-90s {
-    font-family: 'Impact', 'Arial Black', sans-serif !important;
-    font-size: 45px !important;
+    font-family: 'Impact', sans-serif !important;
+    font-size: 52px !important;
     font-weight: 900;
     color: #ffff00 !important;
     text-transform: uppercase;
-    margin: 0 0 10px 10px !important;
+    margin: 0 0 4px 8px !important;
     text-shadow: 3px 3px 0px #000000;
-    letter-spacing: 1px;
+    letter-spacing: -1px;
     
     opacity: 0;
 }
 
 .creditos-90s-container.active .artista-arriba-90s {
     animation: chispazoArtista 0.1s forwards;
-    animation-delay: 1.5s; 
+    animation-delay: 1.5s;
 }
 
 .barra-morada-90s {
-    background: rgba(43, 31, 105, 0.60) !important; 
+    background: rgba(43, 31, 105, 0.60) !important;
     border: 3px solid #000000;
-    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
+    padding: 16px 28px;
+    min-width: 380px;
     box-sizing: border-box;
     
-    width: 0%;
-    overflow: hidden;
-    white-space: nowrap;
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
 .creditos-90s-container.active .barra-morada-90s {
@@ -512,7 +512,6 @@ body{
     text-transform: uppercase;
     text-shadow: 2px 2px 0px #000000;
     line-height: 1.4;
-
     opacity: 0;
 }
 
@@ -521,45 +520,89 @@ body{
     animation-delay: 1.6s;
 }
 
-.logo-lateral-90s {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
+.logo-externo-90s {
+    position: relative;
+    width: 110px;
+    height: 100px;
     opacity: 0;
-    transform: translateY(100px);
 }
 
-.creditos-90s-container.active .logo-lateral-90s {
-    animation: subirLogo90 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+.creditos-90s-container.active .logo-externo-90s {
+    animation: encenderContenedorLogo 0.1s forwards;
     animation-delay: 1.5s;
 }
 
-.logo-credito-90s {
-    width: 110px;
+.logo-m-90s {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
     height: auto;
-    
-    filter: invert(62%) sepia(31%) saturate(1105%) hue-rotate(323deg) brightness(98%) contrast(90%) drop-shadow(2px 2px 0px #000000);
+    opacity: 0;
+    filter: invert(62%) sepia(31%) saturate(1105%) hue-rotate(323deg) brightness(98%) contrast(90%) opacity(0.65) drop-shadow(2px 2px 0px #000);
+}
+
+.creditos-90s-container.active .logo-m-90s {
+    animation: caerM 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1.5s;
+}
+
+.logo-tv-90s {
+    position: absolute;
+    top: -5px;
+    left: 30px;
+    width: 70px;
+    height: auto;
+    opacity: 0;
+    filter: invert(72%) sepia(85%) saturate(1500%) hue-rotate(100deg) brightness(100%) contrast(100%) opacity(0.70) drop-shadow(2px 2px 0px #000);
+}
+
+.creditos-90s-container.active .logo-tv-90s {
+    animation: chispazoTv 0.1s forwards;
+    animation-delay: 2.1s;
+}
+
+.logo-subtexto-90s {
+    position: absolute;
+    bottom: -15px;
+    left: 5px;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 9px;
+    font-weight: 900;
+    color: #ffffff !important; /* Siempre blanco sólido */
+    background: #000000;
+    padding: 1px 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0;
+}
+
+.creditos-90s-container.active .logo-subtexto-90s {
+    animation: aparecerTexto90 0.3s forwards;
+    animation-delay: 2.3s;
 }
 
 @keyframes estirarPersiana {
-    from { width: 0%; }
-    to { width: 100%; }
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
 }
-
 @keyframes chispazoArtista {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 @keyframes aparecerTexto90 {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-@keyframes subirLogo90 {
-    from { opacity: 0; transform: translateY(100px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes encenderContenedorLogo {
+    to { opacity: 1; }
+}
+@keyframes caerM {
+    from { transform: translateY(-60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+@keyframes chispazoTv {
+    to { opacity: 1; }
 }
 
 
@@ -789,18 +832,25 @@ THE MUSIC NEVER STOPS
         </div>
 
         <div id="creditos-box90" class="creditos-90s-container">
-            <div class="artista-arriba-90s" id="cred-artista90"></div>
-            <div class="barra-morada-90s">
-                <div class="datos-bloque-90s">
-                    <div id="cred-cancion90" style="margin-bottom: 4px;"></div>
-                    <div style="font-size: 21px;">
-                        <span id="cred-album90"></span>, <span id="cred-anio90"></span>
+            
+            <div class="bloque-izquierdo-90s">
+                <div class="artista-arriba-90s" id="cred-artista90"></div>
+                <div class="barra-morada-90s">
+                    <div class="datos-bloque-90s">
+                        <div id="cred-cancion90" style="margin-bottom: 4px;"></div>
+                        <div style="font-size: 21px;">
+                            <span id="cred-album90"></span>, <span id="cred-anio90"></span>
+                        </div>
                     </div>
                 </div>
-                <div class="logo-lateral-90s">
-                    <img class="logo-credito-90s" src="mtv-music-television-seeklogo.png" alt="MTV 90s">
-                </div>
             </div>
+
+            <div class="logo-externo-90s">
+                <img class="logo-m-90s" src="mtv-m-layer.png" alt="M">
+                <img class="logo-tv-90s" src="mtv-tv-layer.png" alt="TV">
+                <div class="logo-subtexto-90s">MUSIC TELEVISION</div>
+            </div>
+
         </div>
 
         <div id="custom-controls90" style="position:absolute; inset:0; z-index:25; transition:opacity 0.4s ease; opacity:1;">
