@@ -457,60 +457,111 @@ body{
 .creditos-90s-container {
     position: absolute;
     bottom: 60px;
-    left: -100%;
+    left: 55px;
     z-index: 30;
     display: flex;
     flex-direction: column;
-    width: 520px;
-    transition: left 2.0s cubic-bezier(0.25, 1, 0.5, 1); /* Aquí le damos los 2 segundos exactos de demora */
-}
-
-.creditos-90s-container.active {
-    left: 55px;
+    align-items: flex-start;
+    width: 530px;
+    pointer-events: none;
 }
 
 .artista-arriba-90s {
-    font-family: 'Impact', 'Arial Black', sans-serif;
-    font-size: 42px;
+    font-family: 'Impact', 'Arial Black', sans-serif !important;
+    font-size: 45px !important;
     font-weight: 900;
     color: #ffff00 !important;
     text-transform: uppercase;
-    margin: 0 0 6px 8px;
+    margin: 0 0 10px 10px !important;
     text-shadow: 3px 3px 0px #000000;
     letter-spacing: 1px;
+    
+    opacity: 0;
+}
+
+.creditos-90s-container.active .artista-arriba-90s {
+    animation: chispazoArtista 0.1s forwards;
+    animation-delay: 1.5s; 
 }
 
 .barra-morada-90s {
-    background: rgba(59, 44, 137, 0.60) !important; 
+    background: rgba(43, 31, 105, 0.60) !important; 
     border: 3px solid #000000;
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.9);
     padding: 16px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    
+    width: 0%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.creditos-90s-container.active .barra-morada-90s {
+    animation: estirarPersiana 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .datos-bloque-90s {
     font-family: 'Arial Black', sans-serif;
-    font-size: 22px;
+    font-size: 23px;
     font-weight: 900;
     color: #ff66cc !important;
     text-transform: uppercase;
     text-shadow: 2px 2px 0px #000000;
-    line-height: 1.3;
+    line-height: 1.4;
+
+    opacity: 0;
+}
+
+.creditos-90s-container.active .datos-bloque-90s {
+    animation: aparecerTexto90 0.5s ease-out forwards;
+    animation-delay: 1.6s;
 }
 
 .logo-lateral-90s {
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    opacity: 0;
+    transform: translateY(100px);
+}
+
+.creditos-90s-container.active .logo-lateral-90s {
+    animation: subirLogo90 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1.5s;
 }
 
 .logo-credito-90s {
-    width: 115px;
+    width: 110px;
     height: auto;
-    filter: drop-shadow(2px 2px 0px #000000);
+    
+    filter: invert(62%) sepia(31%) saturate(1105%) hue-rotate(323deg) brightness(98%) contrast(90%) drop-shadow(2px 2px 0px #000000);
 }
+
+@keyframes estirarPersiana {
+    from { width: 0%; }
+    to { width: 100%; }
+}
+
+@keyframes chispazoArtista {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes aparecerTexto90 {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes subirLogo90 {
+    from { opacity: 0; transform: translateY(100px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 
 .player90s, .player00s {
     display: none;
