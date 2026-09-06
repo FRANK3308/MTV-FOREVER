@@ -3,15 +3,18 @@ const button90 = document.getElementById("startChannel90s");
 const container90 = document.querySelector(".player90s");
 
 const playlist90 = [
-    "https://archive.org",
-    "https://archive.org",
-    "https://archive.org"
+    
+    "https://archive.org/download/90s-001/90s_001.mp4"
+   
 ];
 
 const diccionarioCreditos90 = {
-    "https://archive.org": { a: "UXVlZW4=", c: "IkFub3RoZXIgT25lIEJpdGVzIHRoZSBEdXN0Ig==", b: "VGhlIEdhbWU=", y: "MTk4MA==" },
-    "https://archive.org": { a: "R3VucyBOJyBSb3Nlcw==", c: "IldlbGNvbWUgdG8gdGhlIEp1bmdsZSI=", b: "QXBwZXRpdGUgZm9yIERlc3RydWN0aW9u", y: "MTk4Nw==" },
-    "https://archive.org": { a: "UXVlZW4=", c: "IkkgV2FudCB0byBCcmVhayBGcmVlIg==", b: "VGhlIFdvcmtz", y: "MTk4NA==" }
+    
+    "https://archive.org/download/90s-001/90s_001.mp4": { a: "TklSVkFOQQ==", 
+        c: "IlNNRUxMUyBMSUtFIFRFRU4gU1BJUklUIg==", 
+        b: "TkVWRVJNSU5E", 
+        y: "MTk5MQ=="}
+    
 };
 
 let currentVideo90 = Math.floor(Math.random() * playlist90.length);
