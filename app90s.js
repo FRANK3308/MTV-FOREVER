@@ -170,7 +170,7 @@ if (video90) {
         if (!creditosBox90 || !duration) return;
         
         const tiempoFinalInicio = duration - 32;
-        const mostrarAlInicio = (currentTime >= 0 && currentTime <= 15);
+        const mostrarAlInicio = (currentTime >= 12 && currentTime <= 27);
         const mostrarAlFinal = (currentTime >= tiempoFinalInicio && currentTime <= (tiempoFinalInicio + 15));
         
         if (mostrarAlInicio || mostrarAlFinal) {
