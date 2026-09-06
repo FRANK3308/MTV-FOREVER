@@ -179,5 +179,23 @@ if (video90) {
             creditosBox90.classList.remove("active");
         }
     });
+
+    video90.addEventListener("play", () => {
+        const logoBox90 = document.getElementById("channel-logo90");
+        if (logoBox90) {
+            logoBox90.style.display = "flex";
+            setTimeout(() => { logoBox90.style.opacity = "1"; }, 10);
+        }
+    });
+
+    video90.addEventListener("pause", () => {
+        const logoBox90 = document.getElementById("channel-logo90");
+        if (logoBox90) {
+            logoBox90.style.opacity = "0";
+            setTimeout(() => { 
+                if (logoBox90.style.opacity === "0") { logoBox90.style.display = "none"; }
+            }, 500);
+        }
+    });
 }
 
