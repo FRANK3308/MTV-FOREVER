@@ -479,13 +479,13 @@ body{
     text-transform: uppercase;
     margin: 0 0 6px 4px !important;
     text-shadow: 2px 2px 0px #000000;
-    letter-spacing: 2px; /* Letras delgadas, altas y separadas como tu imagen */
+    letter-spacing: 2px;
     opacity: 0;
 }
 
 .creditos-90s-container.active .artista-arriba-90s {
     animation: chispazoArtista 0.1s forwards;
-    animation-delay: 1.5s; /* Explota justo cuando la persiana frena */
+    animation-delay: 1.5s;
 }
 
 .barra-morada-90s {
@@ -494,7 +494,6 @@ body{
     padding: 14px 24px;
     min-width: 380px;
     box-sizing: border-box;
-    
     transform: scaleX(0);
     transform-origin: left;
 }
@@ -519,66 +518,33 @@ body{
     animation-delay: 1.6s;
 }
 
-.logo-ia-90s {
+.logo-externo-90s {
     position: relative;
     width: 110px;
-    height: 90px;
-    margin-bottom: 2px;
+    height: 95px;
+    opacity: 0;
 }
 
-.ia-m {
+.creditos-90s-container.active .logo-externo-90s {
+    animation: encenderContenedorLogo 0.1s forwards;
+    animation-delay: 1.5s;
+}
+
+.logo-credito-90s {
+    width: 100%;
+    height: auto;
     position: absolute;
     top: 0;
     left: 0;
-    width: 90px;
-    height: 75px;
-    background: #ff8b72; 
-    clip-path: polygon(0% 100%, 0% 0%, 28% 0%, 50% 45%, 72% 0%, 100% 0%, 100% 100%, 75% 100%, 75% 35%, 50% 75%, 25% 35%, 25% 100%);
-    border: 3px solid #000;
-    opacity: 0;
+   
+    filter: invert(62%) sepia(31%) saturate(1105%) hue-rotate(323deg) brightness(98%) contrast(90%) opacity(0.70) drop-shadow(2px 2px 0px #000000);
+    
+    clip-path: inset(0 0 100% 0); 
 }
-
-.creditos-90s-container.active .ia-m {
-    animation: caerM 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 1.5s; /* Cae al finalizar el estiramiento */
-}
-
-.ia-tv {
-    position: absolute;
-    top: 15px;
-    left: 45px;
-    font-family: 'Impact', sans-serif;
-    font-size: 52px;
-    font-style: italic;
-    color: #ffd800; /* Amarillo neón fiel a tus últimas fotos */
-    text-shadow: 3px 3px 0px #000;
-    opacity: 0;
-    z-index: 5;
-}
-
-.creditos-90s-container.active .ia-tv {
-    animation: chispazoTv 0.1s forwards;
-    animation-delay: 2.1s; /* Explota de golpe encima de la M */
-}
-
-.ia-subtexto {
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    font-family: 'Arial Black', sans-serif;
-    font-size: 8px;
-    font-weight: 900;
-    color: #ffffff !important;
-    background: #000000;
-    padding: 2px 4px;
-    letter-spacing: 0.5px;
-    border: 2px solid #000;
-    opacity: 0;
-}
-
-.creditos-90s-container.active .ia-subtexto {
-    animation: aparecerTexto90 0.3s forwards;
-    animation-delay: 2.3s; /* Sella el diseño al final de la secuencia */
+    
+.creditos-90s-container.active .logo-credito-90s {
+    animation: caerMReal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation-delay: 1.5s; 
 }
 
 @keyframes estirarPersiana {
@@ -593,12 +559,12 @@ body{
     from { opacity: 0; }
     to { opacity: 1; }
 }
-@keyframes caerM {
-    from { transform: translateY(-50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 0.65; } /* Opacidad melón translúcido */
+@keyframes encenderContenedorLogo {
+    to { opacity: 1; }
 }
-@keyframes chispazoTv {
-    to { opacity: 0.85; } /* Opacidad amarillo neón translúcido */
+@keyframes caerMReal {
+    from { transform: translateY(-40px); clip-path: inset(0 0 100% 0); opacity: 0; }
+    to { transform: translateY(0); clip-path: inset(0 0 0% 0); opacity: 1; } /* Abre el logo completo de golpe de arriba hacia abajo */
 }
 
 .player90s, .player00s {
@@ -840,14 +806,12 @@ THE MUSIC NEVER STOPS
                 </div>
             </div>
 
-            <div class="logo-ia-90s">
-                <div class="ia-m"></div>
-                <div class="ia-tv">TV</div>
-                <div class="ia-subtexto">MUSIC TELEVISION</div>
+            <div class="logo-externo-90s">
+                <img class="logo-credito-90s" src="mtv-music-television-seeklogo.png" alt="MTV 90s">
             </div>
 
         </div>
-        
+
         <div id="custom-controls90" style="position:absolute; inset:0; z-index:25; transition:opacity 0.4s ease; opacity:1;">
             <button id="ctrl-back90" style="position:absolute; top:25px; right:40px; background:none; border:none; color:#ffffff; font-size:28px; font-weight:900; cursor:pointer; text-shadow:2px 2px 4px rgba(0,0,0,0.9);">←</button>
             <button id="ctrl-lock90" style="position:absolute; bottom:25px; left:50%; transform:translateX(-50%); background:rgba(0,0,0,0.5); border:2px solid white; border-radius:50%; width:50px; height:50px; display:flex; justify-content:center; align-items:center; color:#ffffff; font-size:28px; font-weight:900; cursor:pointer;">🔓</button>
