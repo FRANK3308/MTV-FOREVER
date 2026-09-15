@@ -459,113 +459,28 @@ body{
     bottom: 60px;
     left: 55px;
     z-index: 30;
-    display: flex;
-    align-items: flex-end;
-    gap: 15px;
     pointer-events: none;
-}
 
-.bloque-izquierdo-90s {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.artista-arriba-90s {
-    font-family: 'Arial', 'Helvetica', sans-serif !important;
-    font-size: 34px !important;
-    font-weight: bold;
-    color: #ffff00 !important;
-    text-transform: uppercase;
-    margin: 0 0 6px 4px !important;
-    text-shadow: 2px 2px 0px #000000;
-    letter-spacing: 2px;
-    opacity: 0;
-}
-
-.creditos-90s-container.active .artista-arriba-90s {
-    animation: chispazoArtista 0.1s forwards;
-    animation-delay: 1.5s;
-}
-
-.barra-morada-90s {
-    background: rgba(54, 47, 126, 0.45) !important; /* Cuadro morado translúcido ultra limpio */
-    border: 3px solid #000000;
-    padding: 14px 24px;
-    min-width: 380px;
-    box-sizing: border-box;
     transform: scaleX(0);
     transform-origin: left;
 }
 
-.creditos-90s-container.active .barra-morada-90s {
-    animation: estirarPersiana 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+.creditos-90s-container.active {
+    animation: abrirPersianaLimpia 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
-.datos-bloque-90s {
-    font-family: 'Arial Black', sans-serif;
-    font-size: 21px;
-    font-weight: 900;
-    color: #ff66cc !important;
-    text-transform: uppercase;
-    text-shadow: 2px 2px 0px #000000;
-    line-height: 1.3;
-    opacity: 0;
+.barra-morada-90s {
+    background: rgba(54, 47, 126, 0.45) !important;
+    padding: 14px 24px;
+    min-width: 380px;
+    box-sizing: border-box;
 }
 
-.creditos-90s-container.active .datos-bloque-90s {
-    animation: aparecerTexto90 0.5s ease-out forwards;
-    animation-delay: 1.6s;
-}
-
-.logo-externo-90s {
-    position: relative;
-    width: 110px;
-    height: 95px;
-    opacity: 0;
-}
-
-.creditos-90s-container.active .logo-externo-90s {
-    animation: encenderContenedorLogo 0.1s forwards;
-    animation-delay: 1.5s;
-}
-
-.logo-credito-90s {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-   
-    filter: invert(62%) sepia(31%) saturate(1105%) hue-rotate(323deg) brightness(98%) contrast(90%) opacity(0.70) drop-shadow(2px 2px 0px #000000);
-    
-    clip-path: inset(0 0 100% 0); 
-}
-    
-.creditos-90s-container.active .logo-credito-90s {
-    animation: caerMReal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-    animation-delay: 1.5s; 
-}
-
-@keyframes estirarPersiana {
+@keyframes abrirPersianaLimpia {
     from { transform: scaleX(0); }
     to { transform: scaleX(1); }
 }
-@keyframes chispazoArtista {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes aparecerTexto90 {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-@keyframes encenderContenedorLogo {
-    to { opacity: 1; }
-}
-@keyframes caerMReal {
-    from { transform: translateY(-40px); clip-path: inset(0 0 100% 0); opacity: 0; }
-    to { transform: translateY(0); clip-path: inset(0 0 0% 0); opacity: 1; } /* Abre el logo completo de golpe de arriba hacia abajo */
-}
+
 
 .player90s, .player00s {
     display: none;
@@ -793,18 +708,9 @@ THE MUSIC NEVER STOPS
         </div>
         
         <div id="creditos-box90" class="creditos-90s-container">
-            
-            <div class="bloque-izquierdo-90s">
-                <div class="artista-arriba-90s" id="cred-artista90"></div>
-                <div class="barra-morada-90s">
-                    <div class="datos-bloque-90s">
-                        <div id="cred-cancion90" style="margin-bottom: 4px;"></div>
-                        <div style="font-size: 21px;">
-                            <span id="cred-album90"></span>, <span id="cred-anio90"></span>
-                        </div>
-                    </div>
-                </div>
+            <div class="barra-morada-90s">
             </div>
+        </div>
 
             <div class="logo-externo-90s">
                 <img class="logo-credito-90s" src="mtv-music-television-seeklogo.png" alt="MTV 90s">
