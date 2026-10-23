@@ -487,43 +487,71 @@ body{
 
 .logo-ia-90s {
     position: relative;
-    width: 115px; 
-    height: 192px;
-    margin-bottom: 0; 
+    width: 9vw;
+    height: 12vh;
+    margin-bottom: 0.5vh;
 }
 
 .ia-m {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ff8b72 !important; 
-    
+    width: 80%;
+    height: 80%;
+    background: #ffff00 !important; 
     clip-path: polygon(
         0% 100%, 0% 0%, 35% 0%, 50% 25%, 65% 0%, 100% 0%, 100% 100%, 
         65% 100%, 65% 45%, 50% 70%, 35% 45%, 35% 100%
     ) !important;
-    
     opacity: 0;
-    transform: translateY(-60px);
+    transform: translateY(-4vh);
+    z-index: 5;
 }
 
-.creditos-90s-container.active .ia-m {
-    animation: caerMReal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+.ia-m-3d-derecha {
+    position: absolute;
+    top: 0;
+    right: 4%;
+    width: 16%;
+    height: 80%;
+    background: #00bfff !important;
+    clip-path: polygon(0% 0%, 100% 12%, 100% 100%, 0% 88%) !important;
+    opacity: 0;
+    transform: translateY(-4vh);
+    z-index: 4;
+}
+
+.ia-m-3d-centro {
+    position: absolute;
+    top: 0;
+    left: 35%;
+    width: 30%;
+    height: 40%;
+    background: #00bfff !important;
+    clip-path: polygon(0% 0%, 50% 25%, 100% 0%, 50% 50%) !important;
+    opacity: 0;
+    transform: translateY(-4vh);
+    z-index: 4;
+}
+
+.creditos-90s-container.active .ia-m,
+.creditos-90s-container.active .ia-m-3d-derecha,
+.creditos-90s-container.active .ia-m-3d-centro {
+    animation: caerPiezas90 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     animation-delay: 1.5s;
 }
 
-@keyframes caerMReal {
+@keyframes caerPiezas90 {
     from {
-        transform: translateY(-60px);
+        transform: translateY(-4vh);
         opacity: 0;
     }
     to {
         transform: translateY(0);
-        opacity: 0.65;
+        opacity: 1;
     }
 }
+
     
 .player90s, .player00s {
     display: none;
@@ -750,7 +778,7 @@ THE MUSIC NEVER STOPS
             <span class="programa-texto90" style="position:absolute; top:-2px; left:170px; color:#ffffff; font-family:'Arial Black',sans-serif; font-size:24px; font-weight:900; text-shadow:2px 2px 4px rgba(0,0,0,0.9); white-space:nowrap;">Goodbye From MTV 90s</span>
         </div>
         
-        <div id="creditos-box90" class="creditos-90s-container">
+                <div id="creditos-box90" class="creditos-90s-container">
             <div class="barra-morada-90s">
                 <div id="cred-artista90" style="display:none;"></div>
                 <div id="cred-cancion90" style="display:none;"></div>
@@ -758,8 +786,10 @@ THE MUSIC NEVER STOPS
                 <div id="cred-anio90" style="display:none;"></div>
             </div>
 
-             <div class="logo-ia-90s">
+            <div class="logo-ia-90s">
                 <div class="ia-m"></div>
+                <div class="ia-m-3d-derecha"></div>
+                <div class="ia-m-3d-centro"></div>
             </div>
         </div>
 
