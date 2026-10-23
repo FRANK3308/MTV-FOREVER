@@ -503,8 +503,6 @@ body{
         0% 100%, 0% 0%, 35% 0%, 50% 25%, 65% 0%, 100% 0%, 100% 100%, 
         65% 100%, 65% 45%, 50% 70%, 35% 45%, 35% 100%
     ) !important;
-    transform: scaleX(0);
-    transform-origin: left;
     opacity: 0;
 }
 
@@ -516,8 +514,6 @@ body{
     height: 80%;
     background: #00bfff !important;
     clip-path: polygon(0% 0%, 100% 12%, 100% 100%, 0% 88%) !important;
-    transform: scaleX(0);
-    transform-origin: left;
     opacity: 0;
 }
 
@@ -529,27 +525,75 @@ body{
     height: 40%;
     background: #00bfff !important;
     clip-path: polygon(0% 0%, 50% 25%, 100% 0%, 50% 50%) !important;
-    transform: scaleX(0);
-    transform-origin: left;
     opacity: 0;
 }
 
+/* EL TEXTO ROJO "TV" INCLINADO QUE CRUZA LA M */
+.ia-tv-90s {
+    position: absolute;
+    top: 1.5vh;
+    left: 3.5vw;
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    font-size: 4.8vw;
+    font-weight: 900;
+    font-style: italic;
+    color: #ff0055 !important;
+    text-shadow: 0.3vw 0.3vw 0px #000000;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.5);
+}
+
+/* EL CINTILLO INFERIOR BLANCO SÓLIDO */
+.ia-cintillo-90s {
+    position: absolute;
+    bottom: 0.5vh;
+    left: 0;
+    width: 96%;
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-family: 'Arial Black', sans-serif;
+    font-size: 0.75vw;
+    font-weight: 900;
+    text-align: center;
+    padding: 0.2vh 0;
+    letter-spacing: 0.1vw;
+    border: 0.2vw solid #000000;
+    z-index: 12;
+    opacity: 0;
+}
+
+/* DISPARADOR DE LAS ANIMACIONES AL MISMO TIEMPO */
 .creditos-90s-container.active .ia-m,
 .creditos-90s-container.active .ia-m-3d-derecha,
 .creditos-90s-container.active .ia-m-3d-centro {
-    animation: estirarLogoHorizontal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: abrirLogoDeCostado 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     animation-delay: 1.5s;
 }
 
-@keyframes estirarLogoHorizontal {
-    from {
-        transform: scaleX(0);
-        opacity: 0;
-    }
-    to {
-        transform: scaleX(1);
-        opacity: 1;
-    }
+.creditos-90s-container.active .ia-tv-90s {
+    animation: chispazoTvRojo 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 2.1s; /* Brota justo después de que la M se estira */
+}
+
+.creditos-90s-container.active .ia-cintillo-90s {
+    animation: brotarCintillo90 0.3s ease-out forwards;
+    animation-delay: 2.3s;
+}
+
+@keyframes abrirLogoDeCostado {
+    from { transform: scaleX(0); opacity: 0; transform-origin: left; }
+    to { transform: scaleX(1); opacity: 1; transform-origin: left; }
+}
+
+@keyframes chispazoTvRojo {
+    from { transform: scale(0.5) italic; opacity: 0; }
+    to { transform: scale(1) rotate(-5deg); opacity: 1; }
+}
+
+@keyframes brotarCintillo90 {
+    from { transform: translateY(1vh); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
     
@@ -778,7 +822,7 @@ THE MUSIC NEVER STOPS
             <span class="programa-texto90" style="position:absolute; top:-2px; left:170px; color:#ffffff; font-family:'Arial Black',sans-serif; font-size:24px; font-weight:900; text-shadow:2px 2px 4px rgba(0,0,0,0.9); white-space:nowrap;">Goodbye From MTV 90s</span>
         </div>
         
-                <div id="creditos-box90" class="creditos-90s-container">
+        <div id="creditos-box90" class="creditos-90s-container">
             <div class="barra-morada-90s">
                 <div id="cred-artista90" style="display:none;"></div>
                 <div id="cred-cancion90" style="display:none;"></div>
@@ -790,6 +834,8 @@ THE MUSIC NEVER STOPS
                 <div class="ia-m"></div>
                 <div class="ia-m-3d-derecha"></div>
                 <div class="ia-m-3d-centro"></div>
+                <div class="ia-tv-90s">TV</div>
+                <div class="ia-cintillo-90s">MUSIC TELEVISION</div>
             </div>
         </div>
 
