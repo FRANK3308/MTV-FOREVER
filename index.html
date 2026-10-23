@@ -503,9 +503,9 @@ body{
         0% 100%, 0% 0%, 35% 0%, 50% 25%, 65% 0%, 100% 0%, 100% 100%, 
         65% 100%, 65% 45%, 50% 70%, 35% 45%, 35% 100%
     ) !important;
+    transform: scaleX(0);
+    transform-origin: left;
     opacity: 0;
-    transform: translateY(-4vh);
-    z-index: 5;
 }
 
 .ia-m-3d-derecha {
@@ -516,9 +516,9 @@ body{
     height: 80%;
     background: #00bfff !important;
     clip-path: polygon(0% 0%, 100% 12%, 100% 100%, 0% 88%) !important;
+    transform: scaleX(0);
+    transform-origin: left;
     opacity: 0;
-    transform: translateY(-4vh);
-    z-index: 4;
 }
 
 .ia-m-3d-centro {
@@ -529,25 +529,25 @@ body{
     height: 40%;
     background: #00bfff !important;
     clip-path: polygon(0% 0%, 50% 25%, 100% 0%, 50% 50%) !important;
+    transform: scaleX(0);
+    transform-origin: left;
     opacity: 0;
-    transform: translateY(-4vh);
-    z-index: 4;
 }
 
 .creditos-90s-container.active .ia-m,
 .creditos-90s-container.active .ia-m-3d-derecha,
 .creditos-90s-container.active .ia-m-3d-centro {
-    animation: caerPiezas90 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    animation: estirarLogoHorizontal 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     animation-delay: 1.5s;
 }
 
-@keyframes caerPiezas90 {
+@keyframes estirarLogoHorizontal {
     from {
-        transform: translateY(-4vh);
+        transform: scaleX(0);
         opacity: 0;
     }
     to {
-        transform: translateY(0);
+        transform: scaleX(1);
         opacity: 1;
     }
 }
